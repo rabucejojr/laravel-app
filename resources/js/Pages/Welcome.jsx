@@ -34,10 +34,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                 <div className="max-w-7xl mx-auto p-6 lg:p-8">
                     <div className="flex justify-center">
-                        <img src="DOST.png" width={"150px"} />
+                        <img src="DOST.png" width={"200px"} />
                     </div>
 
-                    <div className="mt-16">
+                    {/* <div className="mt-16">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                             <a
                                 href="https://laravel.com/docs"
@@ -318,7 +318,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         <div className="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                             Laravel v{laravelVersion} (PHP v{phpVersion})
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
