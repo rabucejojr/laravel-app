@@ -6,7 +6,10 @@ import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClic
 function Calendar() {
     return (
         <>
-            <FullCalendar plugins={[dayGridPlugin, interactionPlugin]} />
+            <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin]}
+                selectable={true}
+            />
         </>
     );
 }
