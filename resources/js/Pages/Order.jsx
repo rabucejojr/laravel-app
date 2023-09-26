@@ -1,0 +1,18 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Head } from "@inertiajs/react";
+
+export default function Order({ auth }) {
+    return (
+        <AuthenticatedLayout user={auth.user}>
+            <Head title="Order" />
+
+            <div className="py-5">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="overflow-hidden sm:rounded-lg">
+                        <h1>Orders Page</h1>
+                    </div>
+                </div>
+            </div>
+        </AuthenticatedLayout>
+    );
+}

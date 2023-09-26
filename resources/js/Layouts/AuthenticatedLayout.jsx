@@ -24,13 +24,27 @@ export default function Authenticated({ user, header, children }) {
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-                                    // href={route("dashboard")}
+                                href={route("order")}
                                 >
-                                    Dashboard
+                                    Orders
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                // href={route("dashboard")}
+                                >
+                                    Summary
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                // href={route("dashboard")}
+                                >
+                                    Contact Us
                                 </NavLink>
                             </div>
                         </div>
-
+                        {/* PROFILE MENU RIGHT-SIDE */}
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
                             <div className="ml-3 relative">
                                 <Dropdown>
@@ -116,6 +130,7 @@ export default function Authenticated({ user, header, children }) {
                                 </svg>
                             </button>
                         </div>
+                        {/* PROFILE MENU RIGHT-SIDE */}
                     </div>
                 </div>
 
