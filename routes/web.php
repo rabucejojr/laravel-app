@@ -31,6 +31,9 @@ Route::get('/dashboard', function () {
 Route::get('/order', function () {
     return Inertia::render('Order');
 })->middleware(['auth', 'verified'])->name('order');
+Route::get('/summary', function () {
+    return Inertia::render('Summary');
+})->middleware(['auth', 'verified'])->name('summary');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
