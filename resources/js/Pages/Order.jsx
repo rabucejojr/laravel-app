@@ -58,7 +58,7 @@ export default function Order({ auth }) {
                                 Order Form
                             </h2>
                             <form>
-                                <div class="flex">
+                                <div class="flex justify-between">
                                     <div class="mb-4 w-full">
                                         <select
                                             class="border border-gray-300 p-2 w-full rounded"
@@ -88,7 +88,7 @@ export default function Order({ auth }) {
                                     </div>
                                     <div class="mb-4 w-2/3 px-2">
                                         <input
-                                            class="border border-gray-300 p-2 rounded"
+                                            class="appearance-none border border-gray-300 p-2 rounded"
                                             type="number"
                                             id="quantity"
                                             name="quantity"
@@ -108,7 +108,7 @@ export default function Order({ auth }) {
                                         required
                                     />
                                 </div>
-                                <div cl ss="mb-4">
+                                <div class="mb-4">
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
                                         type="name"
@@ -118,8 +118,18 @@ export default function Order({ auth }) {
                                         required
                                     />
                                 </div>
+                                <div class="mb-4">
+                                    <input
+                                        class="border border-gray-300 p-2 w-full rounded"
+                                        type="name"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Note/Specifications"
+                                        required
+                                    />
+                                </div>
                                 <div class="flex items-center justify-center">
-                                    <div class="mt-4">
+                                    <div class="mt-1">
                                         <button
                                             class="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700"
                                             type="submit"
