@@ -28,9 +28,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/order', function () {
-    return Inertia::render('Order');
-})->middleware(['auth', 'verified'])->name('order');
+Route::get('/upload', function () {
+    return Inertia::render('Upload');
+})->middleware(['auth', 'verified'])->name('upload');
 Route::get('/summary', function () {
     return Inertia::render('Summary');
 })->middleware(['auth', 'verified'])->name('summary');
