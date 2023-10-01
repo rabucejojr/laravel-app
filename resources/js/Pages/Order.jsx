@@ -55,56 +55,36 @@ export default function Order({ auth }) {
                         </div> */}
                         <div class="max-w-md mx-auto bg-white p-8 my-10 shadow-lg rounded-lg">
                             <h2 class="text-xl mb-4 font-semibold text-gray-800">
-                                Order Form
+                                File Upload
                             </h2>
                             <form>
-                                <div class="flex justify-between">
-                                    <div class="mb-4 w-full">
+                                <div class="flex">
+                                    <div class="mb-4 w-1/2">
                                         <select
                                             class="border border-gray-300 p-2 w-full rounded"
-                                            id="product"
-                                            name="product"
+                                            id="filegroup"
+                                            name="filegroup"
                                             required
                                         >
-                                            <option value="" disabled selected>
-                                                Product Type
-                                            </option>
                                             <option value="product1">
-                                                Individual
+                                                SETUP
                                             </option>
                                             <option value="product2">
-                                                BFP
-                                            </option>
-                                            <option value="product3">
-                                                BJMP
-                                            </option>
-                                            <option value="product4">
-                                                PNP
+                                                GIA
                                             </option>
                                             <option value="product5">
                                                 Others
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="mb-4 w-2/3 px-2">
-                                        <input
-                                            class="appearance-none border border-gray-300 p-2 rounded"
-                                            type="number"
-                                            id="quantity"
-                                            name="quantity"
-                                            placeholder="Enter quantity"
-                                            min="1"
-                                            required
-                                        />
-                                    </div>
                                 </div>
                                 <div class="mb-4">
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
                                         type="name"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Lastname, Firstname, MI"
+                                        id="filename"
+                                        name="filename"
+                                        placeholder="Filename"
                                         required
                                     />
                                 </div>
@@ -112,9 +92,9 @@ export default function Order({ auth }) {
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
                                         type="name"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Contact No."
+                                        id="description"
+                                        name="description"
+                                        placeholder="Description"
                                         required
                                     />
                                 </div>
@@ -122,9 +102,9 @@ export default function Order({ auth }) {
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
                                         type="name"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Note/Specifications"
+                                        id="location"
+                                        name="location"
+                                        placeholder="Location"
                                         required
                                     />
                                 </div>
@@ -134,7 +114,7 @@ export default function Order({ auth }) {
                                             class="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700"
                                             type="submit"
                                         >
-                                            Order
+                                            Upload
                                         </button>
                                     </div>
                                 </div>
