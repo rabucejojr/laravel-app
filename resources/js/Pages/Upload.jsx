@@ -59,7 +59,7 @@ export default function Order({ auth }) {
                             </h2>
                             <form>
                                 <div class="flex">
-                                    <div class="mb-4 w-1/2">
+                                    <div class="mb-4 w-full">
                                         <select
                                             class="border border-gray-300 p-2 w-full rounded"
                                             id="filegroup"
