@@ -25,6 +25,7 @@
         "@fullcalendar/interaction": "^6.1.8",
         "@fullcalendar/react": "^6.1.8",
         "@mantine/core": "^6.0.19",
-        "@mantine/hooks": "^6.0.19"
+        "@mantine/hooks": "^6.0.19",
+        "react-table": "^7.8.0"
     }
 }
