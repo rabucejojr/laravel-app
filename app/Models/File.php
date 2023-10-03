@@ -10,7 +10,7 @@ class File extends Model
     use HasFactory;
     protected $fillable = [
         'FileId',
-        'FileUpload',
+        'FileGroup', #FileUpload
         'FileFolder',
         'FilePath',
         'FileDescription'
