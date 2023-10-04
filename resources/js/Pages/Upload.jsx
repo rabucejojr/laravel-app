@@ -13,7 +13,7 @@ export default function Order({ auth }) {
                             <h2 class="text-xl mb-4 font-semibold text-gray-800">
                                 File Upload
                             </h2>
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('store') }}">
                                 {/* File Group Dropdown */}
                                 <div class="flex">
                                     <div class="mb-4 w-full">
