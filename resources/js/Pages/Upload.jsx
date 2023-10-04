@@ -13,7 +13,8 @@ export default function Order({ auth }) {
                             <h2 class="text-xl mb-4 font-semibold text-gray-800">
                                 File Upload
                             </h2>
-                            <form>
+                            <form method="POST" action="">
+                                {/* File Group Dropdown */}
                                 <div class="flex">
                                     <div class="mb-4 w-full">
                                         <select
@@ -34,6 +35,7 @@ export default function Order({ auth }) {
                                         </select>
                                     </div>
                                 </div>
+                                {/* Filename */}
                                 <div class="mb-4">
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
@@ -44,6 +46,7 @@ export default function Order({ auth }) {
                                         required
                                     />
                                 </div>
+                                {/* File Description */}
                                 <div class="mb-4">
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
@@ -54,6 +57,7 @@ export default function Order({ auth }) {
                                         required
                                     />
                                 </div>
+                                {/* File Location */}
                                 <div class="mb-4">
                                     <input
                                         class="border border-gray-300 p-2 w-full rounded"
@@ -64,6 +68,7 @@ export default function Order({ auth }) {
                                         required
                                     />
                                 </div>
+                                {/* Upload Button */}
                                 <div class="flex items-center justify-center">
                                     <div class="mt-1">
                                         <button
