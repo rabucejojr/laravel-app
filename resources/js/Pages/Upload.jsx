@@ -19,7 +19,7 @@ export default function Order({ auth }) {
     }
     function handleSubmit(e){
         e.preventDefault();
-        router.post(route('/store'),values);
+        router.post(route('store'),values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>

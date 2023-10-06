@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,8 +45,7 @@ Route::middleware('auth')->group(function () {
 
 // CRUD
 // Upload Route
-Route::post('/store', [FileController::class, 'store'])->name('store');
-
+Route::post('/store', [FilesController::class, 'store.route'])->name('store.route');
 
 
 
