@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 class FileController extends Controller
 {
-    //
+    // Save to DB
     public function store(Request $r)
     {
         return Inertia::render('Upload',[
