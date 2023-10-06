@@ -55,7 +55,7 @@ const TableComponent = () => {
                             {row.cells.map((cell) => (
                                 <td
                                     {...cell.getCellProps()}
-                                    className="border p-2"
+                                    className="border p-2 text-center"
                                 >
                                     {cell.render("Cell")}
                                 </td>
