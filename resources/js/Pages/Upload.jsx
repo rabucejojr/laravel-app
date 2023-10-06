@@ -1,7 +1,26 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 
 export default function Order({ auth }) {
+    const [values, setValues]=useState({
+        filegroup:"",
+        filename:"",
+        description:"",
+        location:"",
+
+    })
+    function handleChange(e){
+        const key =e.target.id;
+        const value=e.target.value;
+        setValues(values=>({
+            ...values,
+            [key]:values,
+        }))
+    }
+    function handleSubmit(e){
+        e.preventDefault();
+        router.post('/store',values);
+    }
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Order" />

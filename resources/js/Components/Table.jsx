@@ -4,9 +4,9 @@ import { useTable } from "react-table";
 const TableComponent = () => {
     const data = React.useMemo(
         () => [
-            { firstName: "John", lastName: "Doe", age: 25 },
-            { firstName: "Jane", lastName: "Doe", age: 30 },
-            { firstName: "James", lastName: "Smith", age: 35 },
+            { fileID: "01", filename: "John", description: "Doe", filepath: 25 },
+            { fileID: "01", filename: "Jane", description: "Doe", filepath: 30 },
+            { fileID: "01", filename: "James", description: "Smith", filepath: 35 },
             // Add more data rows as needed
         ],
         []
@@ -14,9 +14,10 @@ const TableComponent = () => {
 
     const columns = React.useMemo(
         () => [
-            { Header: "First Name", accessor: "firstName" },
-            { Header: "Last Name", accessor: "lastName" },
-            { Header: "Age", accessor: "age" },
+            { Header: "UUID", accessor: "fileID" },
+            { Header: "Filename", accessor: "filename" },
+            { Header: "Description", accessor: "description" },
+            { Header: "Filepath", accessor: "filepath" },
         ],
         []
     );
