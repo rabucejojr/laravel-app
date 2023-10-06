@@ -47,4 +47,7 @@ Route::post('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// CRUD
+
+
 require __DIR__ . '/auth.php';
