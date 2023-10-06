@@ -20,6 +20,6 @@ class FileController extends Controller
                 'FileDescription'
             ),
 
-        ])
+        ]);
     }
 }
