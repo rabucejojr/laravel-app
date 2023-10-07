@@ -2,26 +2,24 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { useState } from "react";
 export default function Order({ auth }) {
-    const [values, setValues]=useState({
-        filegroup:"",
-        filename:"",
-        description:"",
-        location:"",
-
-    })
-    function handleChange(e){
-        const key =e.target.id;
-        const value=e.target.value;
-        setValues(value=>({
-            ...value,
-            [key]:value,   
-        }))
+    const [values, setValues] = useState({
+        filegroup: "",
+        filename: "",
+        description: "",
+        location: "",
+    });
+    function handleChange(e) {
+        const { key, value } = e.target;
+        setValues({
+            ...values,
+            [key]: value,
+        });
         // console.log('values');
     }
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
-        router.post('store',values);
-        // console.log(values);
+        // router.post('store',values);
+        console.log(values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>
