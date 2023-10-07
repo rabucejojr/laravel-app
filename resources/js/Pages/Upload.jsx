@@ -12,14 +12,16 @@ export default function Order({ auth }) {
     function handleChange(e){
         const key =e.target.id;
         const value=e.target.value;
-        setValues(values=>({
-            ...values,
-            [key]:values,   
+        setValues(value=>({
+            ...value,
+            [key]:value,   
         }))
+        // console.log('values');
     }
     function handleSubmit(e){
         e.preventDefault();
-        router.post(route('store'),values);
+        router.post('store',values);
+        // console.log(values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>
