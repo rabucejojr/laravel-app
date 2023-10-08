@@ -37,6 +37,7 @@ export default function Order({ auth }) {
                                             className="border border-gray-300 p-2 w-full rounded"
                                             id="filegroup"
                                             name="filegroup"
+                                            value={values.filegroup}
                                             onChange={handleChange}
                                             required
                                         >
