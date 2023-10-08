@@ -3,7 +3,7 @@ import { Head, router } from "@inertiajs/react";
 import { useState } from "react";
 export default function Order({ auth }) {
     const [values, setValues] = useState({
-        filegroup: "",
+        filegroup:"",
         filename: "",
         description: "",
         location: "",
@@ -19,6 +19,7 @@ export default function Order({ auth }) {
     function handleSubmit(e) {
         e.preventDefault();
         // router.post('store',values);
+        // console.log('data passed')
         console.log(values);
     }
     return (
@@ -59,7 +60,7 @@ export default function Order({ auth }) {
                                 <div className="mb-4">
                                     <input
                                         className="border border-gray-300 p-2 w-full rounded"
-                                        type="name"
+                                        type="text"
                                         id="filename"
                                         name="filename"
                                         placeholder="Filename"
@@ -71,7 +72,7 @@ export default function Order({ auth }) {
                                 <div className="mb-4">
                                     <input
                                         className="border border-gray-300 p-2 w-full rounded"
-                                        type="name"
+                                        type="text"
                                         id="description"
                                         name="description"
                                         placeholder="Description"
@@ -83,7 +84,7 @@ export default function Order({ auth }) {
                                 <div className="mb-4">
                                     <input
                                         className="border border-gray-300 p-2 w-full rounded"
-                                        type="name"
+                                        type="text"
                                         id="location"
                                         name="location"
                                         placeholder="Location"
