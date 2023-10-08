@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
 
 // CRUD
 // Upload Route
-Route::post('/store', [FilesController::class, 'store.route'])->name('store.route');
+Route::post('/store', [FilesController::class, 'store'])->name('store');
 
 
 
