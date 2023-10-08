@@ -14,8 +14,7 @@ export default function Order({ auth }) {
         };
     function handleSubmit(e) {
         e.preventDefault();
-        router.post('/store',values);
-        // console.log('data passed')
+        // router.post('/store',values);
         console.log(values);
     }
     return (
