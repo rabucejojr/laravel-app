@@ -8,17 +8,13 @@ export default function Order({ auth }) {
         description: "",
         location: "",
     });
-    function handleChange(e) {
-        const { key, value } = e.target;
+    function handleChange (e) {
         setValues({
-            ...values,
-            [key]: value,
-        });
-        // console.log('values');
-    }
+            ...values,[e.target.name]: e.target.value});
+        };
     function handleSubmit(e) {
         e.preventDefault();
-        // router.post('store',values);
+        router.post('/store',values);
         // console.log('data passed')
         console.log(values);
     }
@@ -44,13 +40,9 @@ export default function Order({ auth }) {
                                             onChange={handleChange}
                                             required
                                         >
-                                            <option value="product1">
-                                                SETUP
-                                            </option>
-                                            <option value="product2">
-                                                GIA
-                                            </option>
-                                            <option value="product5">
+                                            <option value="SETUP">SETUP</option>
+                                            <option value="GIA">GIA</option>
+                                            <option value="Others">
                                                 Others
                                             </option>
                                         </select>
@@ -64,6 +56,7 @@ export default function Order({ auth }) {
                                         id="filename"
                                         name="filename"
                                         placeholder="Filename"
+                                        value={values.filename}
                                         onChange={handleChange}
                                         required
                                     />
@@ -75,6 +68,7 @@ export default function Order({ auth }) {
                                         type="text"
                                         id="description"
                                         name="description"
+                                        value={values.description}
                                         placeholder="Description"
                                         onChange={handleChange}
                                         required
@@ -87,6 +81,7 @@ export default function Order({ auth }) {
                                         type="text"
                                         id="location"
                                         name="location"
+                                        value={values.location}
                                         placeholder="Location"
                                         onChange={handleChange}
                                         required
