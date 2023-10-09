@@ -1,5 +1,5 @@
 import axios from "axios";
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 
 const TableComponent = () => {
@@ -10,10 +10,10 @@ const TableComponent = () => {
                 setValue(response.value);
                 console.log(value);
             })
-            .catch(error=>{
+            .catch(error => {
                 console.log(error);
             });
-    },[]);
+    }, []);
 
     const columns = React.useMemo(
         () => [

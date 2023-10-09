@@ -23,18 +23,20 @@ class FilesController extends Controller
         $filename = $request->filename;
         $description = $request->description;
         $location = $request->location;
-        $fileInfo=[
-            'Filegroup'=>$filegroup,
-            'Filename'=>$filename,
-            'Description'=>$description,
-            'Location'=>$location,
+        $fileInfo = [
+            'Filegroup' => $filegroup,
+            'Filename' => $filename,
+            'Description' => $description,
+            'Location' => $location,
         ];
         // dd($fileInfo);
         $save = File::insert($fileInfo);
         if ($save) {
-            return inertia('Upload')->with('Success', 'Successfully save');
+            $file = new File();
+            $file->save();
+            return Inertia('Upload')->with('Success', 'Successfully save');
         } else {
-            return inertia('Upload')->with('Error', 'Invalid');
+            return Inertia('Upload')->with('Error', 'Invalid');
         }
     }
 }
