@@ -4,6 +4,7 @@ import { useTable } from "react-table";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/data')
             .then(response => {
@@ -26,9 +27,9 @@ const TableComponent = () => {
                 Header: 'Actions',
                 accessor: 'actions',
                 Cell: ({ row }) => (
-                    <div className="space-x-5">
-                        <button onClick={() => handleEdit(row.original.id)}>Edit</button>
-                    <button onClick={() => handleDelete(row.original.id)}>Delete</button>
+                    <div>
+                        <button onClick={() => handleEdit(row)}>Edit</button>
+                        <button onClick={() => handleDelete(row)}>Delete</button>
                     </div>
                 ),
             },
@@ -36,13 +37,19 @@ const TableComponent = () => {
         ],
         []
     );
-    const handleEdit = (id) => {
-        alert(`Edit button clicked for ID ${id}`);
-        // Implement your edit logic here
+    const handleEdit = (row) => {
+        setSelectedRow(row);
+        setShowModal(true);
     };
-    const handleDelete = (id) => {
-        alert(`Delete button clicked for ID ${id}`);
-        // Implement your edit logic here
+
+    const handleDelete = (row) => {
+        setSelectedRow(row);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setSelectedRow(null);
+        setShowModal(false);
     };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
