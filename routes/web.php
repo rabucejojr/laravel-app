@@ -35,7 +35,7 @@ Route::get('/upload', function () {
 Route::get('/summary', function () {
     return Inertia::render('Summary');
 })->middleware(['auth', 'verified'])->name('summary');
-Route::get('/contactus', function () {
+Route::get('/contact', function () {
     return Inertia::render('ContactUs');
 })->middleware(['auth', 'verified'])->name('contact');
 
