@@ -17,7 +17,7 @@ const TableComponent = () => {
 
     const columns = React.useMemo(
         () => [
-            { Header: "UUID", accessor: "id" },
+            { Header: "ID", accessor: "id" },
             { Header: "Group", accessor: "filegroup" },
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
