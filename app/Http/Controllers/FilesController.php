@@ -32,8 +32,6 @@ class FilesController extends Controller
         // dd($fileInfo);
         $save = File::insert($fileInfo);
         if ($save) {
-            $file = new File();
-            $file->save();
             return Inertia('Upload')->with('Success', 'Successfully save');
         } else {
             return Inertia('Upload')->with('Error', 'Invalid');
