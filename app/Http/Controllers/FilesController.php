@@ -19,21 +19,22 @@ class FilesController extends Controller
     public function store(Request $request)
     {
         // Get Data from Upload.jsx
-        $filegroup = $request->input('filegroup');
-        $filename = $request->input('filename');
-        $description = $request->input('description');
-        $location = $request->input('location');
-
-        $files = $request->only([$filegroup, $filename, $description, $location]);
-        $file = File::create($files);
-        // // Diosplays after successful upload
-        // $request->merge(['filegroup' => $request->input('filegroup', 'SETUP')]);
-        // File::create($request->validate([
-        //     'filegroup' => ['max:50'],
-        //     'filename'  => ['required', 'max:50'],
-        //     'description'  => ['required', 'max:100'],
-        //     'location'  => ['required', 'max:100'],
-        // ]));
-        // return route('files.index');
+        $filegroup = $request->filegroup;
+        $filename = $request->filename;
+        $description = $request->description;
+        $location = $request->location;
+        $fileInfo=[
+            'Filegroup'=>$filegroup,
+            'Filename'=>$filename,
+            'Description'=>$description,
+            'Location'=>$location,
+        ];
+        // dd($fileInfo);
+        $save = File::insert($fileInfo);
+        if ($save) {
+            return inertia('Upload')->with('Success', 'Successfully save');
+        } else {
+            return inertia('Upload')->with('Error', 'Invalid');
+        }
     }
 }
