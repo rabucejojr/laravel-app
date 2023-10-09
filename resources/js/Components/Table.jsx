@@ -4,7 +4,6 @@ import { useTable } from "react-table";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-    const [showModal, setShowModal] = useState(false);
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/data')
             .then(response => {
@@ -37,20 +36,6 @@ const TableComponent = () => {
         ],
         []
     );
-    const handleEdit = (row) => {
-        setSelectedRow(row);
-        setShowModal(true);
-    };
-
-    const handleDelete = (row) => {
-        setSelectedRow(row);
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setSelectedRow(null);
-        setShowModal(false);
-    };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
