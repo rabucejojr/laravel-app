@@ -26,9 +26,9 @@ const TableComponent = () => {
                 Header: 'Actions',
                 accessor: 'actions',
                 Cell: ({ row }) => (
-                    <div>
-                        <button onClick={() => handleEdit(row)}>Edit</button>
-                        <button onClick={() => handleDelete(row)}>Delete</button>
+                    <div className="space-x-5">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(row)}>Edit</button>
+                        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(row)}>Delete</button>
                     </div>
                 ),
             },
@@ -36,6 +36,13 @@ const TableComponent = () => {
         ],
         []
     );
+    const handleEdit = (row) => {
+        alert('Edit')
+    };
+
+    const handleDelete = (row) => {
+        alert('Delete')
+    };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
