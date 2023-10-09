@@ -22,8 +22,6 @@ const TableComponent = () => {
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
             { Header: "File Location", accessor: "location" },
-            { Header: "Created At", accessor: row => new Date(row.created_at).toLocaleString() },
-            { Header: "Updated At", accessor: row => new Date(row.updated_at).toLocaleString() },
         ],
         []
     );
