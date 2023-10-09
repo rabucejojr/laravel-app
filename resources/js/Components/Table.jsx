@@ -1,23 +1,27 @@
-import React from "react";
+import axios from "axios";
+import { React, useEffect, useState } from "react";
 import { useTable } from "react-table";
 
 const TableComponent = () => {
-    const data = React.useMemo(
-        () => [
-            { id: "01", filename: "John", description: "Doe", filepath: 25 },
-            { id: "01", filename: "Jane", description: "Doe", filepath: 30 },
-            { id: "01", filename: "James", description: "Smith", filepath: 35 },
-            // Add more data rows as needed
-        ],
-        []
-    );
+    const [value, setValue] = useState([]);
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/data')
+            .then(response => {
+                setValue(response.value);
+                console.log(value);
+            })
+            .catch(error=>{
+                console.log(error);
+            });
+    },[]);
 
     const columns = React.useMemo(
         () => [
             { Header: "UUID", accessor: "id" },
+            { Header: "Group", accessor: "filegroup" },
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
-            { Header: "Filepath", accessor: "filepath" },
+            { Header: "File Location", accessor: "location" },
         ],
         []
     );
@@ -25,7 +29,7 @@ const TableComponent = () => {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
-            data,
+            value,
         });
 
     return (
