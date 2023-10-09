@@ -9,12 +9,12 @@ class File extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'FileId',
-        'FileGroup', #FileUpload
-        'FileFolder',
-        'FilePath',
-        'FileDescription'
+        'id',
+        'filegroup',
+        'filename',
+        'location',
+        'description'
     ];
     protected $table = 'files';
-    protected $primaryKey = 'FileId';
+    protected $primaryKey = 'id';
 }
