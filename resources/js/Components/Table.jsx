@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 
 const TableComponent = () => {
-    const [value, setValue] = useState([]);
+    const [data, setData] = useState([]);
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/data')
             .then(response => {
-                setValue(response.value);
-                console.log(value);
+                setData(response.data);
+                console.log(data);
             })
             .catch(error => {
                 console.log(error);
@@ -22,14 +22,15 @@ const TableComponent = () => {
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
             { Header: "File Location", accessor: "location" },
+            { Header: "Created At", accessor: row => new Date(row.created_at).toLocaleString() },
+            { Header: "Updated At", accessor: row => new Date(row.updated_at).toLocaleString() },
         ],
         []
     );
-
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
-            value,
+            data,
         });
 
     return (
@@ -38,7 +39,7 @@ const TableComponent = () => {
                 {headerGroups.map((headerGroup) => (
                     <tr
                         {...headerGroup.getHeaderGroupProps()}
-                        className="bg-gray-100"
+                        className="bg-blue-300"
                     >
                         {headerGroup.headers.map((column) => (
                             <th
