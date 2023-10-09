@@ -3,7 +3,7 @@ import { Head, router } from "@inertiajs/react";
 import { useState } from "react";
 export default function Order({ auth }) {
     const [values, setValues] = useState({
-        filegroup:"",
+        filegroup:"SETUP",
         filename: "",
         description: "",
         location: "",
