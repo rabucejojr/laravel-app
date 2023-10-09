@@ -1,6 +1,6 @@
+import TableComponent from "@/Components/Table";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-
 
 export default function Summary({ auth }) {
     return (
@@ -10,7 +10,7 @@ export default function Summary({ auth }) {
             <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
-                        <h1>Summary Page</h1>
+                        <TableComponent />
                     </div>
                 </div>
             </div>
