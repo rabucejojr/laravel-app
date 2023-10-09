@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 class FilesController extends Controller
 {
     //
-    public function index()
-    {
-        return Inertia::render('dashboard', [
-            'files' => File::all(),
-        ]);
-    }
+    // public function index()
+    // {
+    //     return Inertia::render('dashboard', [
+    //         'files' => File::all(),
+    //     ]);
+    // }
 
     public function store(Request $request)
     {
