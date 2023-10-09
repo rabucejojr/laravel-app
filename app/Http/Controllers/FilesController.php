@@ -19,22 +19,13 @@ class FilesController extends Controller
     public function store(Request $request)
     {
         // Get Data from Upload.jsx
-        $filegroup = $request->filegroup;
-        $filename = $request->filename;
-        $description = $request->description;
-        $location = $request->location;
-        $fileInfo = [
-            'Filegroup' => $filegroup,
-            'Filename' => $filename,
-            'Description' => $description,
-            'Location' => $location,
-        ];
-        // dd($fileInfo);
-        $save = File::insert($fileInfo);
-        if ($save) {
-            return Inertia('Upload')->with('Success', 'Successfully save');
-        } else {
-            return Inertia('Upload')->with('Error', 'Invalid');
-        }
+        // SAVE DATA TO MYSQL
+        $files = new File();
+        $files->filegroup = $request->input('filegroup');
+        $files->filename = $request->input('filename');
+        $files->description = $request->input('description');
+        $files->location = $request->input('location');
+        $files->save();
+
     }
 }
