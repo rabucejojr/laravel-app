@@ -22,9 +22,28 @@ const TableComponent = () => {
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
             { Header: "File Location", accessor: "location" },
+            {
+                Header: 'Actions',
+                accessor: 'actions',
+                Cell: ({ row }) => (
+                    <div className="space-x-5">
+                        <button onClick={() => handleEdit(row.original.id)}>Edit</button>
+                    <button onClick={() => handleDelete(row.original.id)}>Delete</button>
+                    </div>
+                ),
+            },
+
         ],
         []
     );
+    const handleEdit = (id) => {
+        alert(`Edit button clicked for ID ${id}`);
+        // Implement your edit logic here
+    };
+    const handleDelete = (id) => {
+        alert(`Delete button clicked for ID ${id}`);
+        // Implement your edit logic here
+    };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
