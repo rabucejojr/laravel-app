@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
+import TableModal from "./TableModal";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/data')
             .then(response => {
@@ -25,10 +27,12 @@ const TableComponent = () => {
             {
                 Header: 'Actions',
                 accessor: 'actions',
-                Cell: ({ row }) => (
+                Cell: () => (
                     <div className="space-x-5">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(row)}>Edit</button>
-                        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(row)}>Delete</button>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleModal}>Edit</button>
+                        {showModal && <TableModal/>}
+                        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete()}>Delete</button>
+
                     </div>
                 ),
             },
@@ -36,11 +40,17 @@ const TableComponent = () => {
         ],
         []
     );
-    const handleEdit = (row) => {
-        alert('Edit')
+    const handleModal = () => {
+        setShowModal(true);
+        // alert('asdasasd');
     };
 
-    const handleDelete = (row) => {
+    // Button event handlers
+    const handleEdit = () => {
+        alert('Edit')
+    };
+    // Button event handlers
+    const handleDelete = () => {
         alert('Delete')
     };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
