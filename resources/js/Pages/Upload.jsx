@@ -1,7 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { useState } from "react";
-export default function Order({ auth }) {
+export default function Upload({ auth }) {
     const [values, setValues] = useState({
         filegroup:"SETUP",
         filename: "",
@@ -19,7 +19,7 @@ export default function Order({ auth }) {
     }
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Order" />
+            <Head title="Upload" />
 
             <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
