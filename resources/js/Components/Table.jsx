@@ -30,7 +30,7 @@ const TableComponent = () => {
                 Cell: () => (
                     <div className="space-x-5">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleModal}>Edit</button>
-                        {showModal && <TableModal/>}
+                        {showModal && <TableModal isOpen={showModal}/>}
                         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete()}>Delete</button>
 
                     </div>

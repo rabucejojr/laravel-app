@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Fade, Button } from '@mui/material';
 
-const TableModal = () => {
+const TableModal = ({ isOpen, closeModal }) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -15,7 +15,8 @@ const TableModal = () => {
   }
   return (
     <Modal
-    style={style}
+      style={style}
+      className={`modal ${isOpen ? 'open' : 'closed'}`}
       closeAfterTransition
     >
       <Fade>
