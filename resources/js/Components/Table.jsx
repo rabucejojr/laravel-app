@@ -38,19 +38,10 @@ const TableComponent = () => {
                         {/* Modal goes here... */}
                         {open && (
                             <TableModal
-                                handleOpen={open}
                                 open={open}
                                 handleClose={handleClose}
                             />
                         )}
-                        {open && <TableModal handleClose={handleClose} />}
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            onClick={handleDelete}
-                        >
-                            Delete
-                        </Button>
                     </div>
                 ),
             },
