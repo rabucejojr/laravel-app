@@ -13,11 +13,13 @@ const style = {
   p: 4,
 };
 
-export default function TableModal({open,handleOpen,handleClose}) {
+export default function TableModal({open,handleClose}) {
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}

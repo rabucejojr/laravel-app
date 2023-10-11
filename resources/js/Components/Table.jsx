@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import TableModal from "./TableModal";
 import { Button } from "@mui/material";
+import styled from "@emotion/styled";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -35,11 +36,17 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
-                        <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handleOpen}
+                        >
                             Edit
                         </Button>
-                        {openModal && <TableModal />}
-                        <Button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        {openModal && (
+                            <TableModal open={open} handleClose={handleClose} />
+                        )}
+                        <Button variant="contained" color="secondary">
                             Delete
                         </Button>
                     </div>
