@@ -32,7 +32,7 @@ const TableComponent = () => {
                     <div className="space-x-5">
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={() => handleEdit()}
+                            onClick={() => handleModal()}
                         >
                             Edit
                         </button>
