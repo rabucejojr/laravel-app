@@ -30,7 +30,6 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div>
-                        {/* EDIT MODAL */}
                         <EditModal/>
                         <DeleteModal/>
                     </div>
