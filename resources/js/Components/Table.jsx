@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import EditModal from "./EditModal";
 import { Button } from "@mui/material";
+import DeleteModal from "./DeleteModal";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -31,9 +32,7 @@ const TableComponent = () => {
                     <div>
                         {/* EDIT MODAL */}
                         <EditModal/>
-                        <Button variant="contained" color="secondary">
-                            DELETE
-                        </Button>
+                        <DeleteModal/>
                     </div>
                 ),
             },
