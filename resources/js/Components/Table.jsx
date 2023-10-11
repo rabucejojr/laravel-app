@@ -1,11 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import TableModal from "./TableModal";
+import EditModal from "./EditModal";
 import { Button } from "@mui/material";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
+
+    // Modal Hooks/Handlers
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
@@ -29,14 +39,9 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
-                        <Button variant="contained" color="primary">
-                            Edit
-                        </Button>
-                        {/* Modal Component */}
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                        >
+                        {/* EDIT MODAL */}
+                        {isModalOpen && <EditModal />}
+                        <Button variant="contained" color="secondary">
                             Delete
                         </Button>
                     </div>
