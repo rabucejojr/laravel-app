@@ -32,9 +32,7 @@ const TableComponent = () => {
                         <Button variant="contained" color="primary">
                             Edit
                         </Button>
-                        {/*                         
-                        MODAL COMPONENT
-                         */}
+                        {/* Modal Component */}
                         <Button
                             variant="contained"
                             color="secondary"
