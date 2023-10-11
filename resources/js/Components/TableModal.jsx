@@ -13,15 +13,12 @@ const style = {
   p: 4,
 };
 
-export default function TableModal({open,handleClose}) {
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+export default function TableModal({isOpen,handleClose}) {
 
   return (
-    <div>
+    <>
       <Modal
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -35,6 +32,6 @@ export default function TableModal({open,handleClose}) {
           </Typography>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }

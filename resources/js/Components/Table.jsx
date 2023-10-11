@@ -7,7 +7,6 @@ import styled from "@emotion/styled";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-    const [openModal, setOpenModal] = useState(false);
     // Modal
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -43,12 +42,19 @@ const TableComponent = () => {
                         >
                             Edit
                         </Button>
-                        {openModal && (
-                            <TableModal open={open} handleClose={handleClose} />
+                        <div>
+                        {open && (
+                            <TableModal
+                                isOpen={handleOpen}
+                                handleClose={handleClose}
+                            />
                         )}
-                        <Button variant="contained" color="secondary">
+                        </div>
+                        <Button variant="contained" color="secondary"
+                        onClick={handleDelete}>
                             Delete
                         </Button>
+                        
                     </div>
                 ),
             },
