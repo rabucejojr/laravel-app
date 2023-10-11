@@ -22,7 +22,7 @@ export default function EditModal() {
     const handleClose = () => setOpen(false);
 
     return (
-        <div className="space-x-5">
+        <div>
             <Button variant="contained" color="primary" onClick={handleOpen}>
                 EDIT
             </Button>
