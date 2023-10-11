@@ -28,6 +28,7 @@
         "@fullcalendar/react": "^6.1.8",
         "@mantine/core": "^6.0.19",
         "@mantine/hooks": "^6.0.19",
+        "@mui/icons-material": "^5.14.13",
         "@mui/material": "^5.14.13",
         "@mui/styled-engine": "^5.14.12",
         "react-table": "^7.8.0"
