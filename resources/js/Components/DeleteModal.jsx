@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const style = {
     position: "absolute",
@@ -15,6 +16,10 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
+const btnStyle = {
+    margin: "5px",
+    width: "20px",
+};
 
 export default function DeleteModal() {
     const [open, setOpen] = useState(false);
@@ -23,8 +28,8 @@ export default function DeleteModal() {
 
     return (
         <div>
-            <Button variant="contained" color="primary" onClick={handleOpen}>
-                DELETE
+            <Button style={btnStyle} onClick={handleOpen}>
+                <DeleteIcon/>
             </Button>
             <Modal
                 open={open}
