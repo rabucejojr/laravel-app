@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import TableModal from "./TableModal";
 import { Button } from "@mui/material";
-import styled from "@emotion/styled";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -35,19 +34,23 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
+                        <Button variant="contained" color="primary" onClick={handleOpen}>Edit</Button>
+                        {/* Modal goes here... */}
+                        {open && (
+                            <TableModal
+                                handleOpen={open}
+                                open={open}
+                                handleClose={handleClose}
+                            />
+                        )}
+                        {open && <TableModal handleClose={handleClose} />}
                         <Button
                             variant="contained"
-                            color="primary"
-                            onClick={handleOpen}
+                            color="secondary"
+                            onClick={handleDelete}
                         >
-                            Edit
-                        </Button>
-                        {/* Modal goes here... */}
-                        <Button variant="contained" color="secondary"
-                        onClick={handleDelete}>
                             Delete
                         </Button>
-                        
                     </div>
                 ),
             },

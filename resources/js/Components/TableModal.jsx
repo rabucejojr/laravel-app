@@ -1,5 +1,8 @@
-import useState from 'react';
-import {Box,Button,Typography,Modal} from '@mui/material';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
 const style = {
   position: 'absolute',
@@ -13,12 +16,12 @@ const style = {
   p: 4,
 };
 
-export default function TableModal({isOpen,handleClose}) {
-
+export default function TableModal({open,handleClose}) {
   return (
-    <>
+    <div>
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
-        open={isOpen}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -32,6 +35,6 @@ export default function TableModal({isOpen,handleClose}) {
           </Typography>
         </Box>
       </Modal>
-    </>
+    </div>
   );
 }
