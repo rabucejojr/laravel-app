@@ -42,14 +42,7 @@ const TableComponent = () => {
                         >
                             Edit
                         </Button>
-                        <div>
-                        {open && (
-                            <TableModal
-                                isOpen={handleOpen}
-                                handleClose={handleClose}
-                            />
-                        )}
-                        </div>
+                        {/* Modal goes here... */}
                         <Button variant="contained" color="secondary"
                         onClick={handleDelete}>
                             Delete
