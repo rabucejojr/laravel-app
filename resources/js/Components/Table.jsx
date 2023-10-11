@@ -2,10 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import TableModal from "./TableModal";
+import { Button } from "@mui/material";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
     const [openModal, setOpenModal] = useState(false);
+    // Modal
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
@@ -30,25 +35,20 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
-                        <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={() => setOpenModal(true)}
-                        >
+                        <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Edit
-                        </button>
+                        </Button>
                         {openModal && <TableModal />}
-                        <button
-                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={() => handleDelete()}
-                        >
+                        <Button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                             Delete
-                        </button>
+                        </Button>
                     </div>
                 ),
             },
         ],
         []
     );
+
     const handleDelete = () => {
         // alert("Delete");
         alert("here here");
