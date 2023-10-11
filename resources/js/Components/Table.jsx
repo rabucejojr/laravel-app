@@ -28,13 +28,11 @@ const TableComponent = () => {
                 Header: "Actions",
                 accessor: "actions",
                 Cell: () => (
-                    <div className="space-x-5">
+                    <div>
                         {/* EDIT MODAL */}
-                        <Button variant="contained" color="primary">
-                            EDIT
-                        </Button>
+                        <EditModal/>
                         <Button variant="contained" color="secondary">
-                            Delete
+                            DELETE
                         </Button>
                     </div>
                 ),
