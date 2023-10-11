@@ -29,10 +29,10 @@ const TableComponent = () => {
                 Header: "Actions",
                 accessor: "actions",
                 Cell: () => (
-                    <div>
-                        <EditModal/>
-                        <DeleteModal/>
-                    </div>
+                    <>
+                        <EditModal />
+                        <DeleteModal />
+                    </>
                 ),
             },
         ],
