@@ -6,16 +6,6 @@ import { Button } from "@mui/material";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-
-    // Modal Hooks/Handlers
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
@@ -40,7 +30,9 @@ const TableComponent = () => {
                 Cell: () => (
                     <div className="space-x-5">
                         {/* EDIT MODAL */}
-                        {isModalOpen && <EditModal />}
+                        <Button variant="contained" color="primary">
+                            EDIT
+                        </Button>
                         <Button variant="contained" color="secondary">
                             Delete
                         </Button>
