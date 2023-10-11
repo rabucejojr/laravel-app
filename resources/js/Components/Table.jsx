@@ -6,16 +6,11 @@ import { Button } from "@mui/material";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-    // Modal
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
             .then((response) => {
                 setData(response.data);
-                console.log(data);
             })
             .catch((error) => {
                 console.log(error);
@@ -34,25 +29,24 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
-                        <Button variant="contained" color="primary" onClick={handleOpen}>Edit</Button>
-                        {/* Modal goes here... */}
-                        {open && (
-                            <TableModal
-                                open={open}
-                                handleClose={handleClose}
-                            />
-                        )}
+                        <Button variant="contained" color="primary">
+                            Edit
+                        </Button>
+                        {/*                         
+                        MODAL COMPONENT
+                         */}
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                        >
+                            Delete
+                        </Button>
                     </div>
                 ),
             },
         ],
         []
     );
-
-    const handleDelete = () => {
-        // alert("Delete");
-        alert("here here");
-    };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
