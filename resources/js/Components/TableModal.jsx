@@ -17,7 +17,7 @@ const TableModal = ({ isOpen, closeModal }) => {
     <Modal
       style={style}
       className={`modal ${isOpen ? 'open' : 'closed'}`}
-      closeAfterTransition
+      // closeAfterTransition
     >
       <Fade>
         <div className="modal">
