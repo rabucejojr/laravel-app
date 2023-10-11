@@ -7,12 +7,13 @@ const TableComponent = () => {
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/data')
-            .then(response => {
+        axios
+            .get("http://127.0.0.1:8000/api/data")
+            .then((response) => {
                 setData(response.data);
                 console.log(data);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
             });
     }, []);
@@ -25,33 +26,43 @@ const TableComponent = () => {
             { Header: "Description", accessor: "description" },
             { Header: "File Location", accessor: "location" },
             {
-                Header: 'Actions',
-                accessor: 'actions',
+                Header: "Actions",
+                accessor: "actions",
                 Cell: () => (
                     <div className="space-x-5">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleModal}>Edit</button>
-                        {showModal && <TableModal isOpen={showModal}/>}
-                        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete()}>Delete</button>
-
+                        <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            onClick={() => handleEdit()}
+                        >
+                            Edit
+                        </button>
+                        {/* {showModal && <TableModal isOpen={showModal} />} */}
+                        <button
+                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                            onClick={() => handleDelete()}
+                        >
+                            Delete
+                        </button>
                     </div>
                 ),
             },
-
         ],
         []
     );
     const handleModal = () => {
-        setShowModal(true);
-        // alert('asdasasd');
+        // setShowModal(true);
+        alert("asdasasd");
+        console.log('here here');
     };
 
     // Button event handlers
     const handleEdit = () => {
-        alert('Edit')
+        alert("Edit");
     };
     // Button event handlers
     const handleDelete = () => {
-        alert('Delete')
+        // alert("Delete");
+        alert('here here');
     };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
