@@ -5,7 +5,7 @@ import TableModal from "./TableModal";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
@@ -32,11 +32,11 @@ const TableComponent = () => {
                     <div className="space-x-5">
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            onClick={() => handleModal()}
+                            onClick={() => setOpenModal(true)}
                         >
                             Edit
                         </button>
-                        {/* {showModal && <TableModal isOpen={showModal} />} */}
+                        {openModal && <TableModal />}
                         <button
                             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                             onClick={() => handleDelete()}
@@ -49,20 +49,9 @@ const TableComponent = () => {
         ],
         []
     );
-    const handleModal = () => {
-        // setShowModal(true);
-        alert("asdasasd");
-        console.log('here here');
-    };
-
-    // Button event handlers
-    const handleEdit = () => {
-        alert("Edit");
-    };
-    // Button event handlers
     const handleDelete = () => {
         // alert("Delete");
-        alert('here here');
+        alert("here here");
     };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
