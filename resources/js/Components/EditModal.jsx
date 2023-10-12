@@ -39,13 +39,6 @@ export default function EditModal() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    {/* <Typography
-                        id="modal-modal-title"
-                        variant="h6"
-                        component="h2"
-                    >
-                        Update File Info
-                    </Typography> */}
                     <TextField
                         sx={{ mt: 2, width:'250px' }}
                         id="standard-basic"
