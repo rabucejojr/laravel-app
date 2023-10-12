@@ -28,9 +28,9 @@ const TableComponent = () => {
             {
                 Header: "Actions",
                 accessor: "actions",
-                Cell: () => (
+                Cell: ({row}) => (
                     <>
-                        <EditModal />
+                        <EditModal row={row}/>
                         <DeleteModal />
                     </>
                 ),

@@ -18,47 +18,56 @@ const style = {
     p: 4,
 };
 const btnStyle = {
-    margin: "5px",
-    width: "10px",
+    // width: "200px",
 };
-export default function EditModal() {
+export default function EditModal({ row }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     return (
-        <div>
-            <Button style={btnStyle} onClick={handleOpen}>
-                <EditIcon />
-            </Button>
-            <Modal
-            style={{textAlign:'center'}}
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <TextField
-                        sx={{ mt: 2, width:'250px' }}
-                        id="standard-basic"
-                        label="Filename"
-                        variant="outlined"
-                    />
-                    <TextField
-                        sx={{ mt: 2, width:'250px' }}
-                        id="standard-basic"
-                        label="Description"
-                        variant="outlined"
-                    />
-                    <TextField
-                        sx={{ mt: 2, width:'250px' }}
-                        id="standard-basic"
-                        label="Location"
-                        variant="outlined"
-                    />
-                </Box>
-            </Modal>
-        </div>
+        <>
+            <div>
+                <Button style={btnStyle} onClick={handleOpen}>
+                    <EditIcon />
+                </Button>
+                <Modal
+                    style={{ textAlign: "center" }}
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <TextField
+                            sx={{ mt: 2, width: "250px" }}
+                            id="standard-basic"
+                            label="Filename"
+                            variant="outlined"
+                            value={row.values.filename}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            sx={{ mt: 2, width: "250px" }}
+                            id="standard-basic"
+                            label="Description"
+                            variant="outlined"
+                            value={row.values.description}
+                        />
+                        <TextField
+                            sx={{ m: 2, width: "250px" }}
+                            id="standard-basic"
+                            label="Location"
+                            variant="outlined"
+                            value={row.values.location}
+                        />
+                        <Box>
+                            <Button variant="contained" sx={btnStyle}>
+                                Update
+                            </Button>
+                        </Box>
+                    </Box>
+                </Modal>
+            </div>
+        </>
     );
 }
