@@ -44,7 +44,6 @@ export default function EditModal({ row }) {
                             label="Filename"
                             variant="outlined"
                             value={row.values.filename}
-                            onChange={handleChange}
                         />
                         <TextField
                             sx={{ mt: 2, width: "250px" }}
