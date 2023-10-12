@@ -24,6 +24,7 @@ export default function EditModal({ row }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [filename,setFilename] =useState(row.values.filename);
     return (
         <>
             <div>
@@ -44,6 +45,9 @@ export default function EditModal({ row }) {
                             label="Filename"
                             variant="outlined"
                             value={row.values.filename}
+                            onChange={(value)=>{
+                                setFilename({...filename,filename:value});
+                            }}
                         />
                         <TextField
                             sx={{ mt: 2, width: "250px" }}
