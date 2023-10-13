@@ -44,9 +44,10 @@ export default function EditModal({ row }) {
                             id="standard-basic"
                             label="Filename"
                             variant="outlined"
-                            value={row.values.filename}
-                            onChange={(value)=>{
-                                setFilename({...filename,filename:value});
+                            value={filename}
+                            onChange={(event)=>{
+                                setFilename(event.target.value);
+                                console.log(filename);
                             }}
                         />
                         <TextField
