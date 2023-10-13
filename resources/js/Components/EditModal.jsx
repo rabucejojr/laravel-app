@@ -25,6 +25,8 @@ export default function EditModal({ row }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [filename,setFilename] =useState(row.values.filename);
+    const [description,setDescription] =useState(row.values.description);
+    
     return (
         <>
             <div>
@@ -56,6 +58,10 @@ export default function EditModal({ row }) {
                             label="Description"
                             variant="outlined"
                             value={row.values.description}
+                            onChange={(event)=>{
+                                setDescription(event.target.value);
+                                console.log(description);
+                            }}
                         />
                         <TextField
                             sx={{ m: 2, width: "250px" }}
