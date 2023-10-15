@@ -13,9 +13,10 @@ export default function Upload({ auth }) {
             ...values,[e.target.name]: e.target.value});
         };
     function handleSubmit(e) {
+        const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         console.log(values);
-        router.post('/store',values);
+        router.put(api,values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>
