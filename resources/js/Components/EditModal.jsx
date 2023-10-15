@@ -24,60 +24,67 @@ export default function EditModal({ row }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [filename,setFilename] =useState(row.values.filename);
-    const [description,setDescription] =useState(row.values.description);
-    
+    const [filename, setFilename] = useState(row.values.filename);
+    const [description, setDescription] = useState(row.values.description);
+    const [location, setLocation] = useState(row.values.location);
+
     return (
         <>
-            <div>
-                <Button style={btnStyle} onClick={handleOpen}>
-                    <EditIcon />
-                </Button>
-                <Modal
-                    style={{ textAlign: "center" }}
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <Box sx={style}>
-                        <TextField
-                            sx={{ mt: 2, width: "250px" }}
-                            id="standard-basic"
-                            label="Filename"
-                            variant="outlined"
-                            value={filename}
-                            onChange={(event)=>{
-                                setFilename(event.target.value);
-                                console.log(filename);
-                            }}
-                        />
-                        <TextField
-                            sx={{ mt: 2, width: "250px" }}
-                            id="standard-basic"
-                            label="Description"
-                            variant="outlined"
-                            value={row.values.description}
-                            onChange={(event)=>{
-                                setDescription(event.target.value);
-                                console.log(description);
-                            }}
-                        />
-                        <TextField
-                            sx={{ m: 2, width: "250px" }}
-                            id="standard-basic"
-                            label="Location"
-                            variant="outlined"
-                            value={row.values.location}
-                        />
-                        <Box>
-                            <Button variant="contained" sx={btnStyle}>
-                                Update
-                            </Button>
+            <form type="submit">
+                <div>
+                    <Button style={btnStyle} onClick={handleOpen}>
+                        <EditIcon />
+                    </Button>
+                    <Modal
+                        style={{ textAlign: "center" }}
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <Box sx={style}>
+                            <TextField
+                                sx={{ mt: 2, width: "250px" }}
+                                id="standard-basic"
+                                label="Filename"
+                                variant="outlined"
+                                value={filename}
+                                onChange={(event) => {
+                                    setFilename(event.target.value);
+                                    console.log(filename);
+                                }}
+                            />
+                            <TextField
+                                sx={{ mt: 2, width: "250px" }}
+                                id="standard-basic"
+                                label="Description"
+                                variant="outlined"
+                                value={description}
+                                onChange={(event) => {
+                                    setDescription(event.target.value);
+                                    console.log(description);
+                                }}
+                            />
+                            <TextField
+                                sx={{ m: 2, width: "250px" }}
+                                id="standard-basic"
+                                label="Location"
+                                variant="outlined"
+                                value={location}
+                                onChange={(event) => {
+                                    setLocation(event.target.value);
+                                    console.log(location);
+                                }}
+                            />
+                            <Box>
+                                <Button variant="contained" sx={btnStyle}>
+                                    Update
+                                </Button>
+                            </Box>
                         </Box>
-                    </Box>
-                </Modal>
-            </div>
+                    </Modal>
+                </div>
+            </form>
         </>
     );
 }
