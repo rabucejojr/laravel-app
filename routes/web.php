@@ -32,6 +32,9 @@ Route::get('/dashboard', function () {
 Route::get('/upload', function () {
     return Inertia::render('Upload');
 })->middleware(['auth', 'verified'])->name('upload');
+Route::get('/upload2', function () {
+    return Inertia::render('Upload2');
+})->middleware(['auth', 'verified'])->name('upload2');
 Route::get('/summary', function () {
     return Inertia::render('Summary');
 })->middleware(['auth', 'verified'])->name('summary');
