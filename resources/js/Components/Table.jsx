@@ -14,6 +14,7 @@ const TableComponent = () => {
                 setData(response.data);
             })
             .catch((error) => {
+                alert(error);
                 console.log(error);
             });
     }, []);
