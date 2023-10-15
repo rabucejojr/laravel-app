@@ -17,9 +17,9 @@ const style = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 350,
+    width: 380,
     bgcolor: "background.paper",
-    borderRadius: '20px',
+    borderRadius: "20px",
     boxShadow: 24,
     p: 4,
     display: "flex",
@@ -57,56 +57,59 @@ export default function Upload2({ auth }) {
             <Head title="Upload" />
 
             <Box sx={style}>
-                <FormControl>
-                    <InputLabel id="demo-simple-select-label">Group</InputLabel>
-                    <Select
-                        sx={styles}
-                        id="filegroup"
-                        name="filegroup"
-                        value={values.filegroup}
-                        label="Group"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value="SETUP">SETUP</MenuItem>
-                        <MenuItem value="GIA">GIA</MenuItem>
-                        <MenuItem value="OTHERS">OTHERS</MenuItem>
-                    </Select>
-                    <TextField
-                        sx={styles}
-                        type="text"
-                        id="filename"
-                        name="filename"
-                        label="Filename"
-                        placeholder="Filename"
-                        value={values.filename}
-                        onChange={handleChange}
-                        variant="outlined"
-                        required
-                    />
-                    <TextField
-                        sx={styles}
-                        id="description"
-                        name="description"
-                        label="Description"
-                        value={values.description}
-                        onChange={handleChange}
-                        variant="outlined"
-                        required
-                    />
-                    <TextField
-                        sx={styles}
-                        id="location"
-                        name="location"
-                        label="Location"
-                        value={values.location}
-                        onChange={handleChange}
-                        variant="outlined"
-                        required
-                    />
-                    <Button sx={styles} variant="contained">
-                        SAVE
-                    </Button>
-                </FormControl>
+                <form onSubmit={handleSubmit}>
+                    <FormControl>
+                        <InputLabel id="demo-simple-select-label">
+                            Filegroup
+                        </InputLabel>
+                        <Select
+                            sx={styles}
+                            id="filegroup"
+                            name="filegroup"
+                            value={values.filegroup}
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="SETUP">SETUP</MenuItem>
+                            <MenuItem value="GIA">GIA</MenuItem>
+                            <MenuItem value="OTHERS">OTHERS</MenuItem>
+                        </Select>
+                        <TextField
+                            sx={styles}
+                            type="text"
+                            id="filename"
+                            name="filename"
+                            label="Filename"
+                            placeholder="Filename"
+                            value={values.filename}
+                            onChange={handleChange}
+                            variant="outlined"
+                            required
+                        />
+                        <TextField
+                            sx={styles}
+                            id="description"
+                            name="description"
+                            label="Description"
+                            value={values.description}
+                            onChange={handleChange}
+                            variant="outlined"
+                            required
+                        />
+                        <TextField
+                            sx={styles}
+                            id="location"
+                            name="location"
+                            label="Location"
+                            value={values.location}
+                            onChange={handleChange}
+                            variant="outlined"
+                            required
+                        />
+                        <Button sx={styles} variant="contained">
+                            SAVE
+                        </Button>
+                    </FormControl>
+                </form>
             </Box>
         </AuthenticatedLayout>
     );
