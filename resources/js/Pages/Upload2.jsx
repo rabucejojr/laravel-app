@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
     Box,
     TextField,
@@ -7,6 +7,7 @@ import {
     FormControl,
     Select,
     Grid,
+    Button,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
@@ -16,27 +17,28 @@ const style = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 350,
     bgcolor: "background.paper",
-    border: "2px solid #000",
+    borderRadius: '20px',
     boxShadow: 24,
     p: 4,
-    pb: 4,
-    margin: "normal",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
 };
+const styles = {
+    margin: "10px",
+};
 export default function Upload2({ auth }) {
-  // CREATE AN ARRAY OF VALUES FROM INPUTS
+    // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
         filegroup: "SETUP",
         filename: "",
         description: "",
         location: "",
     });
-    // SET VALUES 
+    // SET VALUES
     function handleChange(e) {
         setValues({
             ...values,
@@ -58,6 +60,7 @@ export default function Upload2({ auth }) {
                 <FormControl>
                     <InputLabel id="demo-simple-select-label">Group</InputLabel>
                     <Select
+                        sx={styles}
                         id="filegroup"
                         name="filegroup"
                         value={values.filegroup}
@@ -69,6 +72,7 @@ export default function Upload2({ auth }) {
                         <MenuItem value="OTHERS">OTHERS</MenuItem>
                     </Select>
                     <TextField
+                        sx={styles}
                         type="text"
                         id="filename"
                         name="filename"
@@ -80,6 +84,7 @@ export default function Upload2({ auth }) {
                         required
                     />
                     <TextField
+                        sx={styles}
                         id="description"
                         name="description"
                         label="Description"
@@ -89,6 +94,7 @@ export default function Upload2({ auth }) {
                         required
                     />
                     <TextField
+                        sx={styles}
                         id="location"
                         name="location"
                         label="Location"
@@ -97,6 +103,9 @@ export default function Upload2({ auth }) {
                         variant="outlined"
                         required
                     />
+                    <Button sx={styles} variant="contained">
+                        SAVE
+                    </Button>
                 </FormControl>
             </Box>
         </AuthenticatedLayout>
