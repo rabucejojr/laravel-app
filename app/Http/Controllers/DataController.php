@@ -24,9 +24,24 @@ class DataController extends Controller
         $files->location = $req->input('location');
         $files->save();
     }
-    public function deleteData($id)
+    public function updateData(Request $req, $id)
     {
         $file = File::find($id); // Find the item by its ID
-        $file->delete(); // Delete the item
+        if (!$file) {
+            return response()->json(['message' => 'File not found'], 404);
+        }
+        $file->filegroup = $req->input('filegroup');
+        $file->filename = $req->input('filename');
+        $file->description = $req->input('description');
+        $file->location = $req->input('location');
+        $file->save();
+
+        return response()->json(['message' => 'File updated successfully'], 200);
+    }
+    public function deleteData($id)
+    {
+        // $file = File::find($id); // Find the item by its ID
+        // $file->delete(); // Delete the item
+        return response()->json(['message' => 'Delete File'], 200);
     }
 }

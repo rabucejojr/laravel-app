@@ -23,7 +23,7 @@ export default function Authenticated({ user, header, children }) {
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-                                href={route("upload")}
+                                href={route("upload2")}
                                 >
                                     Upload
                                 </NavLink>
