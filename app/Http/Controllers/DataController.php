@@ -13,4 +13,8 @@ class DataController extends Controller
         $data = File::all();
         return response()->json($data, 200);
     }
+    public function saveData(Request $req)
+    {
+        
+    }
 }
