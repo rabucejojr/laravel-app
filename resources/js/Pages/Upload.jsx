@@ -16,7 +16,7 @@ export default function Upload({ auth }) {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         console.log(values);
-        router.put(api,values);
+        router.post(api,values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>
