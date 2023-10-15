@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/data',[DataController::class,'getData']);
 Route::put('/save', [DataController::class, 'saveData']);
+Route::delete('/delete/:id', [DataController::class, 'deleteData']);

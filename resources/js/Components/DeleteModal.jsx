@@ -21,14 +21,22 @@ const btnStyle = {
     width: "20px",
 };
 
-export default function DeleteModal() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+export default function DeleteModal({row}) {
+    const [id, setId] = useState(row.values.id);
+    const handleDelete =()=>{
+        axios
+            .delete(`http://127.0.0.1:8000/api/items/${id}`)
+            .then((response) => {
+                console.log(response.data);
+                onDelete(id);
+            })
+            .catch((error) => {
+                console.error("Error deleting item:", error);
+            });
+    };
     return (
         <div>
-            <Button style={btnStyle} onClick={handleOpen}>
+            <Button style={btnStyle} onClick={handleDelete}>
                 <DeleteIcon/>
             </Button>
         </div>

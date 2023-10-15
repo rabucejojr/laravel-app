@@ -24,4 +24,9 @@ class DataController extends Controller
         $files->location = $req->input('location');
         $files->save();
     }
+    public function deleteData($id)
+    {
+        $file = File::find($id); // Find the item by its ID
+        $file->delete(); // Delete the item
+    }
 }

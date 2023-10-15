@@ -32,7 +32,7 @@ const TableComponent = () => {
                 Cell: ({row}) => (
                     <>
                         <EditModal row={row}/>
-                        <DeleteModal />
+                        <DeleteModal row={row} />
                     </>
                 ),
             },
