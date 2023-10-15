@@ -30,11 +30,7 @@ export default function EditModal({ row }) {
     const [filename, setFilename] = useState(row.values.filename);
     const [description, setDescription] = useState(row.values.description);
     const [location, setLocation] = useState(row.values.location);
-    // SAVE DATA
-    // useEffect(()=>{
-    //     const api = "http://127.0.0.1:8000/api/data";
-    //     axios.get(api).then(response=>{setId})
-    // },[]);
+
     return (
         <>
             <div>
