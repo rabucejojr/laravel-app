@@ -10,11 +10,12 @@ export default function Authenticated({ user, header, children }) {
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-12">
+                <div className="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-black">
+                    <div className="flex justify-between h-20">
                         <div className="flex">
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
+
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
