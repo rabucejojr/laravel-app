@@ -25,10 +25,9 @@ export default function DeleteModal({row}) {
     const [id, setId] = useState(row.values.id);
     const handleDelete =()=>{
         axios
-            .delete(`http://127.0.0.1:8000/api/items/${id}`)
+            .delete(`http://127.0.0.1:8000/api/delete/${id}`)
             .then((response) => {
                 console.log(response.data);
-                onDelete(id);
             })
             .catch((error) => {
                 console.error("Error deleting item:", error);
