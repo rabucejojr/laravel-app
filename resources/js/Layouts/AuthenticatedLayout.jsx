@@ -1,11 +1,19 @@
-import { useState } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
+import { useState } from "react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import Dropdown from "@/Components/Dropdown";
+import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import GridViewIcon from "@mui/icons-material/GridView";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 
+
+const iconStyles = {
+    margin: "5px",
+};
 export default function Authenticated({ user, header, children }) {
-    const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [showingNavigationDropdown, setShowingNavigationDropdown] =
+        useState(false);
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -15,24 +23,22 @@ export default function Authenticated({ user, header, children }) {
                         <div className="flex">
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
+                                    <GridViewIcon style={ iconStyles } />
                                     Dashboard
                                 </NavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                href={route("upload")}
-                                >
+                                <NavLink href={route("upload")}>
+                                    <AddCircleIcon style={ iconStyles } />
                                     Upload
                                 </NavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                href={route("summary")}
-                                >
+                                <NavLink href={route("summary")}>
+                                    <SummarizeIcon style={ iconStyles } />
                                     Summary
                                 </NavLink>
                             </div>
