@@ -42,8 +42,10 @@ class DataController extends Controller
     public function deleteData($id)
     {
         // dd('here');
-        $file = File::find($id); // Find the item by its ID
-        $file->delete(); // Delete the item
+        $file = File::where('id', $id)->delete();
+        if ($file) {
+            return response()->json(['message' => 'Failed to delete file'], 200);
+        }
         return response()->json(['message' => 'Delete File'], 200);
     }
 }
