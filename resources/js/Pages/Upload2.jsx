@@ -10,7 +10,7 @@ import {
     Button,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 
 const style = {
     position: "absolute",
@@ -57,59 +57,61 @@ export default function Upload2({ auth }) {
             <Head title="Upload" />
 
             <Box sx={style}>
-                <form onSubmit={handleSubmit}>
-                    <FormControl>
-                        <InputLabel id="demo-simple-select-label">
-                            Filegroup
-                        </InputLabel>
-                        <Select
-                            sx={styles}
-                            id="filegroup"
-                            name="filegroup"
-                            value={values.filegroup}
-                            onChange={handleChange}
-                        >
-                            <MenuItem value="SETUP">SETUP</MenuItem>
-                            <MenuItem value="GIA">GIA</MenuItem>
-                            <MenuItem value="OTHERS">OTHERS</MenuItem>
-                        </Select>
-                        <TextField
-                            sx={styles}
-                            type="text"
-                            id="filename"
-                            name="filename"
-                            label="Filename"
-                            placeholder="Filename"
-                            value={values.filename}
-                            onChange={handleChange}
-                            variant="outlined"
-                            required
-                        />
-                        <TextField
-                            sx={styles}
-                            id="description"
-                            name="description"
-                            label="Description"
-                            value={values.description}
-                            onChange={handleChange}
-                            variant="outlined"
-                            required
-                        />
-                        <TextField
-                            sx={styles}
-                            id="location"
-                            name="location"
-                            label="Location"
-                            value={values.location}
-                            onChange={handleChange}
-                            variant="outlined"
-                            required
-                        />
-                        <Button sx={styles} variant="contained">
-                            SAVE
-                        </Button>
-                    </FormControl>
-                </form>
+                <FormControl>
+                    <InputLabel id="demo-simple-select-label">
+                        Filegroup
+                    </InputLabel>
+                    <Select
+                        sx={styles}
+                        id="filegroup"
+                        name="filegroup"
+                        value={values.filegroup}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="SETUP">SETUP</MenuItem>
+                        <MenuItem value="GIA">GIA</MenuItem>
+                        <MenuItem value="OTHERS">OTHERS</MenuItem>
+                    </Select>
+                    <TextField
+                        sx={styles}
+                        type="text"
+                        id="filename"
+                        name="filename"
+                        label="Filename"
+                        placeholder="Filename"
+                        value={values.filename}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <TextField
+                        sx={styles}
+                        id="description"
+                        name="description"
+                        label="Description"
+                        value={values.description}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <TextField
+                        sx={styles}
+                        id="location"
+                        name="location"
+                        label="Location"
+                        value={values.location}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <Button
+                        sx={styles}
+                        onClick={handleSubmit}
+                        variant="contained"
+                    >
+                        SAVE
+                    </Button>
+                </FormControl>
             </Box>
         </AuthenticatedLayout>
     );
