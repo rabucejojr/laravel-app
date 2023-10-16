@@ -7,17 +7,27 @@ import DeleteModal from "./DeleteModal";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
+    // console.log("data: ", data);
+
     useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = () => {
         axios
             .get("http://127.0.0.1:8000/api/data")
             .then((response) => {
-                setData(response.data);
+                setData(response.data.data);
             })
             .catch((error) => {
-                alert(error);
-                console.log(error);
+                console.error(error);
             });
-    }, []);
+    };
+
+    const handleDelete = (id) => {
+        console.log("Id being deleted: ", id);
+        fetchData();
+    };
 
     const columns = React.useMemo(
         () => [
@@ -29,16 +39,17 @@ const TableComponent = () => {
             {
                 Header: "Actions",
                 accessor: "actions",
-                Cell: ({row}) => (
+                Cell: ({ row }) => (
                     <>
-                        <EditModal row={row}/>
-                        <DeleteModal row={row} />
+                        <EditModal row={row} />
+                        <DeleteModal row={row} onDelete={handleDelete} />
                     </>
                 ),
             },
         ],
         []
     );
+
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,

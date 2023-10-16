@@ -7,12 +7,26 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-    //
     public function getData()
     {
         $data = File::all();
-        return response()->json($data, 200);
+
+        // return response()->json($data, 200);
+
+        // if ($data->count() > 0) {
+        if ($data) {
+            return response()->json([
+                'status' => 200,
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No records found.'
+            ], 404);
+        }
     }
+
     public function saveData(Request $req)
     {
         // Get Data from Upload.jsx
@@ -25,6 +39,7 @@ class DataController extends Controller
         $files->save();
         return response()->json(['message' => 'File saved successfully'], 200);
     }
+
     public function updateData(Request $req, $id)
     {
         $file = File::find($id); // Find the item by its ID
@@ -39,13 +54,30 @@ class DataController extends Controller
         }
         return response()->json(['message' => 'File updated successfully'], 200);
     }
+
     public function deleteData($id)
     {
         // dd('here');
         $file = File::where('id', $id)->delete();
+
+        // if ($file) {
+        //     return response()->json(['message' => 'File deleted successfully!'], 200);
+        // }
+
+        // return response()->json(['message' => 'Delete File'], 200);
+
         if ($file) {
-            return response()->json(['message' => 'Failed to delete file'], 200);
+            // $file->delete();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'File deleted successfully!'
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Nothing to delete.'
+            ], 404);
         }
-        return response()->json(['message' => 'Delete File'], 200);
     }
 }

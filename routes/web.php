@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // Login/Register Routes
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -49,7 +51,5 @@ Route::middleware('auth')->group(function () {
 // CRUD
 // Upload Route
 Route::post('/store', [FilesController::class, 'store'])->name('store');
-
-
 
 require __DIR__ . '/auth.php';
