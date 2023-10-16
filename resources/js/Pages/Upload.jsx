@@ -1,109 +1,118 @@
+import React, { useState } from "react";
+import {
+    Box,
+    TextField,
+    InputLabel,
+    MenuItem,
+    FormControl,
+    Select,
+    Grid,
+    Button,
+} from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
-import { useState } from "react";
-export default function Upload({ auth }) {
+
+const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 380,
+    bgcolor: "background.paper",
+    borderRadius: "20px",
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+};
+const styles = {
+    margin: "10px",
+};
+export default function Upload2({ auth }) {
+    // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
-        filegroup:"SETUP",
+        filegroup: "SETUP",
         filename: "",
         description: "",
         location: "",
     });
-    function handleChange (e) {
+    // SET VALUES
+    function handleChange(e) {
         setValues({
-            ...values,[e.target.name]: e.target.value});
-        };
+            ...values,
+            [e.target.name]: e.target.value,
+        });
+    }
+    // SUBMIT/SAVE DATA
     function handleSubmit(e) {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         console.log(values);
-        router.post(api,values);
+        router.post(api, values);
     }
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Upload" />
 
-            <div className="py-5">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="overflow-hidden sm:rounded-lg">
-                        <div className="max-w-md mx-auto bg-white p-8 my-10 shadow-lg rounded-lg">
-                            <h2 className="text-xl mb-4 font-semibold text-gray-800">
-                                File Upload
-                            </h2>
-                            <form onSubmit={handleSubmit}>
-                                {/* File Group Dropdown */}
-                                <div className="flex">
-                                    <div className="mb-4 w-full">
-                                        <select
-                                            className="border border-gray-300 p-2 w-full rounded"
-                                            id="filegroup"
-                                            name="filegroup"
-                                            value={values.filegroup}
-                                            onChange={handleChange}
-                                            required
-                                        >
-                                            <option value="SETUP">SETUP</option>
-                                            <option value="GIA">GIA</option>
-                                            <option value="Others">
-                                                Others
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                {/* Filename */}
-                                <div className="mb-4">
-                                    <input
-                                        className="border border-gray-300 p-2 w-full rounded"
-                                        type="text"
-                                        id="filename"
-                                        name="filename"
-                                        placeholder="Filename"
-                                        value={values.filename}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                {/* File Description */}
-                                <div className="mb-4">
-                                    <input
-                                        className="border border-gray-300 p-2 w-full rounded"
-                                        type="text"
-                                        id="description"
-                                        name="description"
-                                        value={values.description}
-                                        placeholder="Description"
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                {/* File Location */}
-                                <div className="mb-4">
-                                    <input
-                                        className="border border-gray-300 p-2 w-full rounded"
-                                        type="text"
-                                        id="location"
-                                        name="location"
-                                        value={values.location}
-                                        placeholder="Location"
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                {/* Upload Button */}
-                                <div className="flex items-center justify-center">
-                                    <div className="mt-1">
-                                        <button
-                                            className="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700"
-                                            type="submit"
-                                        >
-                                            Upload
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Box sx={style}>
+                <FormControl>
+                    <InputLabel id="demo-simple-select-label">
+                        Filegroup
+                    </InputLabel>
+                    <Select
+                        sx={styles}
+                        id="filegroup"
+                        name="filegroup"
+                        value={values.filegroup}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="SETUP">SETUP</MenuItem>
+                        <MenuItem value="GIA">GIA</MenuItem>
+                        <MenuItem value="OTHERS">OTHERS</MenuItem>
+                    </Select>
+                    <TextField
+                        sx={styles}
+                        type="text"
+                        id="filename"
+                        name="filename"
+                        label="Filename"
+                        placeholder="Filename"
+                        value={values.filename}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <TextField
+                        sx={styles}
+                        id="description"
+                        name="description"
+                        label="Description"
+                        value={values.description}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <TextField
+                        sx={styles}
+                        id="location"
+                        name="location"
+                        label="Location"
+                        value={values.location}
+                        onChange={handleChange}
+                        variant="outlined"
+                        required
+                    />
+                    <Button
+                        sx={styles}
+                        onClick={handleSubmit}
+                        variant="contained"
+                    >
+                        SAVE
+                    </Button>
+                </FormControl>
+            </Box>
         </AuthenticatedLayout>
     );
 }
