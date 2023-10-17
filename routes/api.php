@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/data',[DataController::class,'getData']);
+Route::get('/data', [DataController::class, 'getData']);
 Route::post('/save', [DataController::class, 'saveData']);
 Route::put('/update/{id}', [DataController::class, 'updateData']);
 Route::delete('/delete/{id}', [DataController::class, 'deleteData']);
