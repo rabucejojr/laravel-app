@@ -54,7 +54,6 @@ export default function DeleteModal({ row, onDelete }) {
             <Button style={btnStyle} onClick={handleOpen}>
                 <DeleteIcon />
             </Button>
-            {loading && <CircularProgress size={20} />}
             <Modal
                 open={open}
                 onClose={handleClose}

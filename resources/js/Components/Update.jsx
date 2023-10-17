@@ -30,7 +30,7 @@ const btnStyle = {
 const styles = {
     margin: "10px",
 };
-export default function EditModal({ row }) {
+export default function Update({ row }) {
     //MODAL HOOKS
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
