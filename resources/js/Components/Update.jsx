@@ -5,20 +5,30 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import EditIcon from "@mui/icons-material/Edit";
 import { TextField } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 380,
     bgcolor: "background.paper",
-    border: "2px solid #000",
+    borderRadius: "20px",
     boxShadow: 24,
     p: 4,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
 };
 const btnStyle = {
     // width: "200px",
+};
+const styles = {
+    margin: "10px",
 };
 export default function EditModal({ row }) {
     //MODAL HOOKS
@@ -27,12 +37,13 @@ export default function EditModal({ row }) {
     const handleClose = () => setOpen(false);
     // TEXTFIELD INPUT HOOKS
     const [id, setId] = useState(row.values.id);
+    const [filegroup, setFilegroup] = useState(row.values.filegroup);
     const [filename, setFilename] = useState(row.values.filename);
     const [description, setDescription] = useState(row.values.description);
     const [location, setLocation] = useState(row.values.location);
     // HOOKS FOR NEW DATA INPUTS
     const [newData, setNewData] = useState({
-        // filegroup: '',
+        filegroup: filegroup,
         filename: filename,
         description: description,
         location: location,
@@ -41,9 +52,17 @@ export default function EditModal({ row }) {
     function handleUpdate(e) {
         const api = `http://127.0.0.1:8000/api/update/{$id}`;
         e.preventDefault();
-        console.log(values);
+        // console.log(newData);
         router.put(api, newData);
     }
+    function handleChange(e) {
+        setNewData({
+            ...newData,
+            [e.target.name]: e.target.value,
+        });
+        console.log(newData);
+    }
+
 
     return (
         <>
@@ -60,6 +79,20 @@ export default function EditModal({ row }) {
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
+                            <InputLabel id="demo-simple-select-label">
+                                Filegroup
+                            </InputLabel>
+                            <Select
+                                sx={{ mt: 2, width: "250px" }}
+                                id="filegroup"
+                                name="filegroup"
+                                value={filegroup} // for setting data to dropdown
+                                onChange={handleChange}
+                            >
+                                <MenuItem value="SETUP">SETUP</MenuItem>
+                                <MenuItem value="GIA">GIA</MenuItem>
+                                <MenuItem value="OTHERS">OTHERS</MenuItem>
+                            </Select>
                             <TextField
                                 sx={{ mt: 2, width: "250px" }}
                                 id="standard-basic"
@@ -68,7 +101,6 @@ export default function EditModal({ row }) {
                                 value={filename}
                                 onChange={(event) => {
                                     setFilename(event.target.value);
-                                    console.log(filename);
                                 }}
                             />
                             <TextField
@@ -79,7 +111,6 @@ export default function EditModal({ row }) {
                                 value={description}
                                 onChange={(event) => {
                                     setDescription(event.target.value);
-                                    console.log(description);
                                 }}
                             />
                             <TextField
@@ -90,7 +121,6 @@ export default function EditModal({ row }) {
                                 value={location}
                                 onChange={(event) => {
                                     setLocation(event.target.value);
-                                    console.log(location);
                                 }}
                             />
                             <Box>

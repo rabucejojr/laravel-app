@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import EditModal from "./EditModal";
+import Update from "./Update";
 import { Button } from "@mui/material";
 import DeleteModal from "./DeleteModal";
 
@@ -41,7 +41,7 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: ({ row }) => (
                     <>
-                        <EditModal row={row} />
+                        <Update row={row} />
                         <DeleteModal row={row} onDelete={handleDelete} />
                     </>
                 ),
