@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import Update from "./Update";
 import { Button } from "@mui/material";
-import DeleteModal from "./DeleteModal";
+import Delete from "./Delete";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -42,7 +42,7 @@ const TableComponent = () => {
                 Cell: ({ row }) => (
                     <>
                         <Update row={row} />
-                        <DeleteModal row={row} onDelete={handleDelete} />
+                        <Delete row={row} onDelete={handleDelete} />
                     </>
                 ),
             },
