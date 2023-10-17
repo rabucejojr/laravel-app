@@ -58,9 +58,6 @@ export default function Upload2({ auth }) {
 
             <Box sx={style}>
                 <FormControl>
-                    <InputLabel id="demo-simple-select-label">
-                        Filegroup
-                    </InputLabel>
                     <Select
                         sx={styles}
                         id="filegroup"

@@ -79,9 +79,6 @@ export default function Update({ row }) {
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
-                            <InputLabel id="demo-simple-select-label">
-                                Filegroup
-                            </InputLabel>
                             <Select
                                 sx={{ mt: 2, width: "250px" }}
                                 id="filegroup"
