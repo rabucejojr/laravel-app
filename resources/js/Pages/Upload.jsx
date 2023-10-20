@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
+import Modal from "@/Components/Modal";
 
 const style = {
     position: "absolute",
