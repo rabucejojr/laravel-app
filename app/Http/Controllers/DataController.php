@@ -37,7 +37,7 @@ class DataController extends Controller
         $files->description = $req->input('description');
         $files->location = $req->input('location');
         $files->save();
-        return response()->json(['message' => 'File saved successfully'], 200);
+        // return response()->json(['message' => 'File saved successfully'], 200);
     }
 
     public function updateData(Request $req, $id)

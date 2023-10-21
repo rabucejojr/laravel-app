@@ -51,11 +51,11 @@ export default function Upload2({ auth }) {
     }
     // SUBMIT/SAVE DATA
     function handleSubmit(e) {
+        loading();
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         console.log(values);
         router.post(api, values);
-        loading();
     }
     function loading() {
         <Backdrop
