@@ -9,6 +9,7 @@ import {
     Grid,
     Button,
     Backdrop,
+    CircularProgress
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
@@ -54,12 +55,12 @@ export default function Upload2({ auth }) {
         e.preventDefault();
         console.log(values);
         router.post(api, values);
+        loading();
     }
     function loading() {
         <Backdrop
             sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={open}
-            onClick={handleClose}
+            open
         >
             <CircularProgress color="inherit" />
         </Backdrop>;
