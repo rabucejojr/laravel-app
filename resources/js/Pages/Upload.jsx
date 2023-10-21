@@ -8,6 +8,7 @@ import {
     Select,
     Grid,
     Button,
+    Backdrop,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
@@ -32,6 +33,7 @@ const styles = {
     margin: "10px",
 };
 export default function Upload2({ auth }) {
+    const [success, setSuccess] = useState(false);
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
         filegroup: "SETUP",
@@ -53,6 +55,16 @@ export default function Upload2({ auth }) {
         console.log(values);
         router.post(api, values);
     }
+    function loading() {
+        <Backdrop
+            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={open}
+            onClick={handleClose}
+        >
+            <CircularProgress color="inherit" />
+        </Backdrop>;
+    }
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Upload" />
