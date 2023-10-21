@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class DataController extends Controller
 {
@@ -30,6 +31,7 @@ class DataController extends Controller
 
     public function saveData(Request $req)
     {
+        $message = 'Saved Successfully!';
         // Get Data from Upload.jsx
         // SAVE DATA TO MYSQL
         $files = new File();
@@ -38,7 +40,9 @@ class DataController extends Controller
         $files->description = $req->input('description');
         $files->location = $req->input('location');
         $files->save();
-        return response()->json(['message' => 'File saved successfully'], 200);
+        // return response()->json(['message' => 'File saved successfully'], 200);
+        // return Inertia::render('SimpleSnackbar',['message'=>$message]);
+        return Redirect::route('summary')->with('message',$message);
     }
 
     public function updateData(Request $req, $id)

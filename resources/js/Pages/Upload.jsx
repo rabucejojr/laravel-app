@@ -13,7 +13,9 @@ import {
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
-import Modal from "@/Components/Modal";
+import {usePage} from "@inertiajs/react";
+import SimpleSnackbar from "@/Components/SimpleSmackbar";
+
 
 const style = {
     position: "absolute",
@@ -34,6 +36,7 @@ const styles = {
     margin: "10px",
 };
 export default function Upload2({ auth }) {
+    const { flash } = usePage().props;
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
         filegroup: "SETUP",
@@ -112,6 +115,7 @@ export default function Upload2({ auth }) {
                     >
                         SAVE
                     </Button>
+                    {flash.message && <SimpleSnackbar message='Save Successfully'/>}
                 </FormControl>
             </Box>
         </AuthenticatedLayout>
