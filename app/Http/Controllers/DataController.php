@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -37,7 +38,7 @@ class DataController extends Controller
         $files->description = $req->input('description');
         $files->location = $req->input('location');
         $files->save();
-        // return response()->json(['message' => 'File saved successfully'], 200);
+        return response()->json(['message' => 'File saved successfully'], 200);
     }
 
     public function updateData(Request $req, $id)

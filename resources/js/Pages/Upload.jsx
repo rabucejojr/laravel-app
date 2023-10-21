@@ -34,7 +34,6 @@ const styles = {
     margin: "10px",
 };
 export default function Upload2({ auth }) {
-    const [success, setSuccess] = useState(false);
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
         filegroup: "SETUP",
@@ -51,19 +50,10 @@ export default function Upload2({ auth }) {
     }
     // SUBMIT/SAVE DATA
     function handleSubmit(e) {
-        loading();
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         console.log(values);
         router.post(api, values);
-    }
-    function loading() {
-        <Backdrop
-            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open
-        >
-            <CircularProgress color="inherit" />
-        </Backdrop>;
     }
 
     return (
