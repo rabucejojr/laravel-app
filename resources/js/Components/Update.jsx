@@ -1,13 +1,15 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import {
+    Box,
+    Button,
+    Modal,
+    FormControl,
+    TextField,
+    Select,
+    MenuItem,
+} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import { TextField } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import { router } from "@inertiajs/react";
 
 const style = {
     position: "absolute",
@@ -50,7 +52,7 @@ export default function Update({ row }) {
     });
     // HANDLE SAVE FUNC
     function handleUpdate(e) {
-        const api = `http://127.0.0.1:8000/api/update/{$id}`;
+        const api = `http://127.0.0.1:8000/api/update/id`;
         e.preventDefault();
         // console.log(newData);
         router.put(api, newData);
@@ -63,14 +65,13 @@ export default function Update({ row }) {
         console.log(newData);
     }
 
-
     return (
         <>
             <div>
                 <Button style={btnStyle} onClick={handleOpen}>
                     <EditIcon />
                 </Button>
-                <form onSubmit={handleUpdate}>
+                <FormControl>
                     <Modal
                         style={{ textAlign: "center" }}
                         open={open}
@@ -121,13 +122,17 @@ export default function Update({ row }) {
                                 }}
                             />
                             <Box>
-                                <Button variant="contained" sx={btnStyle}>
+                                <Button
+                                    variant="contained"
+                                    sx={btnStyle}
+                                    onClick={handleUpdate}
+                                >
                                     Update
                                 </Button>
                             </Box>
                         </Box>
                     </Modal>
-                </form>
+                </FormControl>
             </div>
         </>
     );
