@@ -9,13 +9,12 @@ import {
     Grid,
     Button,
     Backdrop,
-    CircularProgress
+    CircularProgress,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
-import {usePage} from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import SimpleSnackbar from "@/Components/SimpleSmackbar";
-
 
 const style = {
     position: "absolute",
@@ -57,6 +56,9 @@ export default function Upload2({ auth }) {
         e.preventDefault();
         console.log(values);
         router.post(api, values);
+        
+        {flash.message && <SimpleSnackbar message='Save Successfully'/>}
+        
     }
 
     return (
@@ -108,6 +110,7 @@ export default function Upload2({ auth }) {
                         variant="outlined"
                         required
                     />
+                        {/* <SimpleSnackbar message="Save Successfully" submit={handleSubmit} /> */}
                     <Button
                         sx={styles}
                         onClick={handleSubmit}
@@ -115,7 +118,8 @@ export default function Upload2({ auth }) {
                     >
                         SAVE
                     </Button>
-                    {flash.message && <SimpleSnackbar message='Save Successfully'/>}
+                    {/* {flash.message && <SimpleSnackbar message='Save Successfully'/>} */}
+                    {/* {loading && <CircularProgress />} */}
                 </FormControl>
             </Box>
         </AuthenticatedLayout>

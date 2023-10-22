@@ -3,8 +3,9 @@ import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { Box } from "@mui/material";
 
-export default function SimpleSnackbar({message}) {
+export default function SimpleSnackbar({ message }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
@@ -31,16 +32,22 @@ export default function SimpleSnackbar({message}) {
             </IconButton>
         </React.Fragment>
     );
+    const styles = {
+        margin: "10px",
+    };
 
     return (
-        <div>
+        <>
+            {/* <Button sx={styles} onClick={submit} variant="contained">
+                SAVE
+            </Button> */}
             <Snackbar
                 open={open}
-                autoHideDuration={6000}
+                autoHideDuration={4000}
                 onClose={handleClose}
                 message={message}
                 action={action}
             />
-        </div>
+        </>
     );
 }
