@@ -48,7 +48,7 @@ class DataController extends Controller
     public function updateData(Request $req, $id)
     {
         $id = $req->id;
-        dd($id);
+        // dd($id);
         $file = File::find($id); // Find the item by its ID
         if (!$file) {
             return response()->json(['message' => 'File not found'], 404);
