@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Box,
     Button,
@@ -45,6 +45,7 @@ export default function Update({ row }) {
     const [location, setLocation] = useState(row.values.location);
     // HOOKS FOR NEW DATA INPUTS
     const [newData, setNewData] = useState({
+        id: id,
         filegroup: filegroup,
         filename: filename,
         description: description,
@@ -65,6 +66,21 @@ export default function Update({ row }) {
         console.log(newData);
     }
 
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = () => {
+        axios
+            .get("http://127.0.0.1:8000/api/data")
+            .then((response) => {
+                setNewData(response.data.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
     return (
         <>
             <div>
@@ -80,6 +96,14 @@ export default function Update({ row }) {
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
+                            <TextField
+                                sx={{ mt: 2, width: "100px" }}
+                                id="id"
+                                label="Unique ID"
+                                variant="outlined"
+                                value={id}
+                                disabled
+                            />
                             <Select
                                 sx={{ mt: 2, width: "250px" }}
                                 id="filegroup"
@@ -93,7 +117,7 @@ export default function Update({ row }) {
                             </Select>
                             <TextField
                                 sx={{ mt: 2, width: "250px" }}
-                                id="standard-basic"
+                                id="filename"
                                 label="Filename"
                                 variant="outlined"
                                 value={filename}
@@ -103,7 +127,7 @@ export default function Update({ row }) {
                             />
                             <TextField
                                 sx={{ mt: 2, width: "250px" }}
-                                id="standard-basic"
+                                id="description"
                                 label="Description"
                                 variant="outlined"
                                 value={description}
@@ -113,7 +137,7 @@ export default function Update({ row }) {
                             />
                             <TextField
                                 sx={{ m: 2, width: "250px" }}
-                                id="standard-basic"
+                                id="location"
                                 label="Location"
                                 variant="outlined"
                                 value={location}

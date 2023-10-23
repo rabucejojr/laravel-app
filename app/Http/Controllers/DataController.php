@@ -42,22 +42,27 @@ class DataController extends Controller
         $files->save();
         // return response()->json(['message' => 'File saved successfully'], 200);
         // return Inertia::render('SimpleSnackbar',['message'=>$message]);
-        return Redirect::route('summary')->with('message',$message);
+        return Redirect::route('summary')->with('message', $message);
     }
 
     public function updateData(Request $req, $id)
     {
+        $id = $req->id;
+        dd($id);
         $file = File::find($id); // Find the item by its ID
+        
         if (!$file) {
             return response()->json(['message' => 'File not found'], 404);
         } else {
+            dd($id);
             $file->filegroup = $req->input('filegroup');
             $file->filename = $req->input('filename');
             $file->description = $req->input('description');
             $file->location = $req->input('location');
             $file->save();
+            return response()->json(['message' => 'File updated successfully'], 200);
         }
-        return response()->json(['message' => 'File updated successfully'], 200);
+        // return response()->json(['message' => 'File updated successfully'], 200);
     }
 
     public function deleteData($id)
