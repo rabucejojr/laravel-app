@@ -50,11 +50,9 @@ class DataController extends Controller
         $id = $req->id;
         dd($id);
         $file = File::find($id); // Find the item by its ID
-        
         if (!$file) {
             return response()->json(['message' => 'File not found'], 404);
         } else {
-            dd($id);
             $file->filegroup = $req->input('filegroup');
             $file->filename = $req->input('filename');
             $file->description = $req->input('description');

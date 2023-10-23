@@ -45,7 +45,6 @@ export default function Update({ row }) {
     const [location, setLocation] = useState(row.values.location);
     // HOOKS FOR NEW DATA INPUTS
     const [newData, setNewData] = useState({
-        id: id,
         filegroup: filegroup,
         filename: filename,
         description: description,
@@ -58,13 +57,22 @@ export default function Update({ row }) {
         // console.log(newData);
         router.put(api, newData);
     }
-    function handleChange(e) {
+    // function handleChange(e) {
+    //     setNewData({
+    //         ...newData,
+    //         [e.target.name]: e.target.value,
+    //     });
+    //     console.log(newData);
+    // }
+
+    useEffect((e) => {
+        // Update newData state when formData changes
         setNewData({
-            ...newData,
-            [e.target.name]: e.target.value,
+          ...newData,
+          [e.target.name]: e.target.value,
         });
-        console.log(newData);
-    }
+      }, [newData]);
+    
 
     useEffect(() => {
         fetchData();
@@ -109,7 +117,9 @@ export default function Update({ row }) {
                                 id="filegroup"
                                 name="filegroup"
                                 value={filegroup} // for setting data to dropdown
-                                onChange={handleChange}
+                                onChange={(event)=>{
+                                    setFilegroup(event.target.value)
+                                }}
                             >
                                 <MenuItem value="SETUP">SETUP</MenuItem>
                                 <MenuItem value="GIA">GIA</MenuItem>
