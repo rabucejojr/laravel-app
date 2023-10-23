@@ -38,7 +38,7 @@ export default function Upload2({ auth }) {
     const { flash } = usePage().props;
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
-        filegroup: "SETUP", // default value if nothing is selected
+        filegroup: "SETUP", // default value if nothing is selected 
         filename: "",
         description: "",
         location: "",
