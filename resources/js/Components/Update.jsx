@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { router } from "@inertiajs/react";
+import axios from "axios";
 
 const style = {
     position: "absolute",
@@ -44,48 +45,24 @@ export default function Update({ row }) {
     const [description, setDescription] = useState(row.values.description);
     const [location, setLocation] = useState(row.values.location);
     // HOOKS FOR NEW DATA INPUTS
-    const [newData, setNewData] = useState({
-        filegroup: filegroup,
-        filename: filename,
-        description: description,
-        location: location,
-    });
+    const newData = {
+        filegroup,
+        filename,
+        description,
+        location,
+    };
     // HANDLE SAVE FUNC
     function handleUpdate(e) {
-        // UPDATE TO NEW DATA
-        setNewData({
-            ...newData,
-            [e.target.name]: e.target.value,
-        });
-        console.log(newData);
-        // THEN UPDATE VIA API PUT
-        // const api = `http://127.0.0.1:8000/api/update/id`;
-        // e.preventDefault();
+        //ADD NEW DATA
         // console.log(newData);
-        // router.put(api, newData);
-    }
-    function handleChange(e) {
-        setNewData({
-            ...newData,
-            [e.target.name]: e.target.value,
-        });
+        // THEN UPDATE VIA API PUT
+        const api = `http://127.0.0.1:8000/api/update/${id}`;
+        e.preventDefault();
         console.log(newData);
+        router.put(api, newData);
+        console.log(newData);
+        console.log(id);
     }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = () => {
-        axios
-            .get("http://127.0.0.1:8000/api/data")
-            .then((response) => {
-                setNewData(response.data.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    };
 
     return (
         <>
@@ -102,21 +79,13 @@ export default function Update({ row }) {
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
-                            <TextField
-                                sx={{ mt: 2, width: "100px" }}
-                                id="id"
-                                label="Unique ID"
-                                variant="outlined"
-                                value={id}
-                                disabled
-                            />
                             <Select
                                 sx={{ mt: 2, width: "250px" }}
                                 id="filegroup"
                                 name="filegroup"
                                 value={filegroup} // for setting data to dropdown
-                                onChange={(event)=>{
-                                    setFilegroup(event.target.value)
+                                onChange={(event) => {
+                                    setFilegroup(event.target.value);
                                 }}
                             >
                                 <MenuItem value="SETUP">SETUP</MenuItem>
