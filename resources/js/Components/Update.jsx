@@ -52,27 +52,25 @@ export default function Update({ row }) {
     });
     // HANDLE SAVE FUNC
     function handleUpdate(e) {
-        const api = `http://127.0.0.1:8000/api/update/id`;
-        e.preventDefault();
-        // console.log(newData);
-        router.put(api, newData);
-    }
-    // function handleChange(e) {
-    //     setNewData({
-    //         ...newData,
-    //         [e.target.name]: e.target.value,
-    //     });
-    //     console.log(newData);
-    // }
-
-    useEffect((e) => {
-        // Update newData state when formData changes
+        // UPDATE TO NEW DATA
         setNewData({
-          ...newData,
-          [e.target.name]: e.target.value,
+            ...newData,
+            [e.target.name]: e.target.value,
         });
-      }, [newData]);
-    
+        console.log(newData);
+        // THEN UPDATE VIA API PUT
+        // const api = `http://127.0.0.1:8000/api/update/id`;
+        // e.preventDefault();
+        // console.log(newData);
+        // router.put(api, newData);
+    }
+    function handleChange(e) {
+        setNewData({
+            ...newData,
+            [e.target.name]: e.target.value,
+        });
+        console.log(newData);
+    }
 
     useEffect(() => {
         fetchData();
