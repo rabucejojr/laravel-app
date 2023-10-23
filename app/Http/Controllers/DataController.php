@@ -48,7 +48,6 @@ class DataController extends Controller
     public function updateData(Request $req, $id)
     {
         $id = $req->id;
-        // dd($id);
         $file = File::find($id); // Find the item by its ID
         if (!$file) {
             return response()->json(['message' => 'File not found'], 404);
@@ -60,7 +59,6 @@ class DataController extends Controller
             $file->save();
             return response()->json(['message' => 'File updated successfully'], 200);
         }
-        // return response()->json(['message' => 'File updated successfully'], 200);
     }
 
     public function deleteData($id)
