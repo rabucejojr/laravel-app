@@ -7,7 +7,6 @@ import Delete from "./Delete";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
-    // console.log("data: ", data);
 
     useEffect(() => {
         fetchData();
@@ -28,6 +27,10 @@ const TableComponent = () => {
         console.log("Id being deleted: ", id);
         fetchData();
     };
+    const handleUpdate = (id) => {
+        console.log("Id being updated: ", id);
+        fetchData();
+    };
 
     const columns = React.useMemo(
         () => [
@@ -41,7 +44,7 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: ({ row }) => (
                     <>
-                        <Update row={row} />
+                        <Update row={row} onUpdate={handleUpdate}/>
                         <Delete row={row} onDelete={handleDelete} />
                     </>
                 ),
