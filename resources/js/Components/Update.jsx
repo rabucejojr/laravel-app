@@ -33,7 +33,7 @@ const btnStyle = {
 const styles = {
     margin: "10px",
 };
-export default function Update({ row }) {
+export default function Update({ row, onUpdate }) {
     //MODAL HOOKS
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -51,28 +51,25 @@ export default function Update({ row }) {
         description,
         location,
     };
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = () => {
-        axios
-            .get("http://127.0.0.1:8000/api/data")
-            .then((response) => {
-                console.log(newData);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    };
     // HANDLE SAVE FUNC
-    function handleUpdate(e) {
+    const handleUpdate = (e) => {
         // ADD NEW DATA THEN UPDATE VIA API PUT
         const api = `http://127.0.0.1:8000/api/update/${id}`;
         e.preventDefault();
-        router.put(api, newData);
-        fetchData();
-    }
+        // AXIOS IS USED TO PREVENT A JSON RESPONSE
+        // CREATED IN THE ROUTES, THIS CODE SENDS UPDATED
+        // DATA AND FETCHED AUTOMATICALLY IN THE TABLE
+        axios
+            .put(api, newData)
+            .then((response) => {
+                console.log("Data updated successfully:", response.data);
+                onUpdate(id);
+                setOpen(false);
+            })
+            .catch((error) => {
+                console.log("Error updating data:", error);
+            });
+    };
 
     return (
         <>
@@ -134,9 +131,9 @@ export default function Update({ row }) {
                             />
                             <Box>
                                 <Button
+                                    onClick={handleUpdate}
                                     variant="contained"
                                     sx={btnStyle}
-                                    onClick={handleUpdate}
                                 >
                                     Update
                                 </Button>
