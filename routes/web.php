@@ -48,8 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// CRUD
-// Upload Route
-Route::post('/store', [FilesController::class, 'store'])->name('store');
-
 require __DIR__ . '/auth.php';
