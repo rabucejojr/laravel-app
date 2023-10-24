@@ -51,17 +51,27 @@ export default function Update({ row }) {
         description,
         location,
     };
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = () => {
+        axios
+            .get("http://127.0.0.1:8000/api/data")
+            .then((response) => {
+                console.log(newData);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
     // HANDLE SAVE FUNC
     function handleUpdate(e) {
-        //ADD NEW DATA
-        // console.log(newData);
-        // THEN UPDATE VIA API PUT
+        // ADD NEW DATA THEN UPDATE VIA API PUT
         const api = `http://127.0.0.1:8000/api/update/${id}`;
         e.preventDefault();
-        console.log(newData);
         router.put(api, newData);
-        console.log(newData);
-        console.log(id);
+        fetchData();
     }
 
     return (
