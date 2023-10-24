@@ -25,7 +25,6 @@ const btnStyle = {
 };
 
 export default function DeleteModal({ row, onDelete }) {
-    // const [id, setId] = useState(row.values.id);
     const id = row.values.id;
     const [loading, setLoading] = useState(false);
 
