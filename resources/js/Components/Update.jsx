@@ -56,9 +56,12 @@ export default function Update({ row, onUpdate }) {
         // ADD NEW DATA THEN UPDATE VIA API PUT
         const api = `http://127.0.0.1:8000/api/update/${id}`;
         e.preventDefault();
+<<<<<<< HEAD
         // AXIOS IS USED TO PREVENT A JSON RESPONSE
         // CREATED IN THE ROUTES, THIS CODE SENDS UPDATED
         // DATA AND FETCHED AUTOMATICALLY IN THE TABLE
+=======
+>>>>>>> cd9a4acc6dc87770d89faf7485d8bb472d4eed96
         axios
             .put(api, newData)
             .then((response) => {
