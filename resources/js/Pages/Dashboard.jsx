@@ -1,4 +1,4 @@
-import MediaCard from "@/Components/MediCard";
+import MediaCard from "@/CustomComponents/MediCard";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 export default function Dashboard({ auth }) {

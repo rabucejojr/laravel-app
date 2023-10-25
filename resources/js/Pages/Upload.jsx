@@ -14,7 +14,7 @@ import {
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
-import SimpleSnackbar from "@/Components/SimpleSmackbar";
+import SimpleSnackbar from "@/CustomComponents/SimpleSmackbar";
 
 const style = {
     position: "absolute",
