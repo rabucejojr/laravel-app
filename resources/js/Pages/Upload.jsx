@@ -55,7 +55,6 @@ export default function Upload2({ auth }) {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
         router.post(api, values); //inertia router.post to send data to mysql
-        setValues([]);
     }
 
     return (
@@ -107,7 +106,6 @@ export default function Upload2({ auth }) {
                         variant="outlined"
                         required
                     />
-                        {/* <SimpleSnackbar message="Save Successfully" submit={handleSubmit} /> */}
                     <Button
                         sx={styles}
                         onClick={handleSubmit}
@@ -115,8 +113,6 @@ export default function Upload2({ auth }) {
                     >
                         SAVE
                     </Button>
-                    {/* {flash.message && <SimpleSnackbar message='Save Successfully'/>} */}
-                    {/* {loading && <CircularProgress />} */}
                 </FormControl>
             </Box>
         </AuthenticatedLayout>
