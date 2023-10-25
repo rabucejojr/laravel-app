@@ -4,18 +4,18 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-blue-500 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
                 {/* LOGIN AND REGISTER */}
                 <div className="max-w-7xl mx-auto p-6 lg:p-8">
                     <div className="flex justify-center">
-                        <img src="DOST.png" width={"200px"} />
+                        <img src="DOST.png" width={"250px"} />
                     </div>
 
                     <div className="text-center py-5">
                         {auth.user ? (
                             <Link
                                 href={route("dashboard")}
-                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                className="font-semibold text-white-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                             >
                                 Dashboard
                             </Link>
@@ -25,14 +25,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     href={route("login")}
                                     className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >
-                                    Log in
+                                    LOGIN
                                 </Link>
 
                                 <Link
                                     href={route("register")}
                                     className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >
-                                    Register
+                                    REGISTER
                                 </Link>
                             </>
                         )}
