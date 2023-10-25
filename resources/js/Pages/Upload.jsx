@@ -54,7 +54,8 @@ export default function Upload2({ auth }) {
     function handleSubmit(e) {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
-        router.post(api, values);
+        router.post(api, values); //inertia router.post to send data to mysql
+        setValues([]);
     }
 
     return (
