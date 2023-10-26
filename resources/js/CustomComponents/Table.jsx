@@ -7,7 +7,6 @@ import Delete from "./Delete";
 import SearchBar from "./SearchBar";
 
 const TableComponent = () => {
-    
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -46,7 +45,7 @@ const TableComponent = () => {
                 accessor: "actions",
                 Cell: ({ row }) => (
                     <>
-                        <Update row={row} onUpdate={handleUpdate}/>
+                        <Update row={row} onUpdate={handleUpdate} />
                         <Delete row={row} onDelete={handleDelete} />
                     </>
                 ),
@@ -63,7 +62,13 @@ const TableComponent = () => {
 
     return (
         <>
-            <SearchBar />
+            <div className="p-2">
+                <div className="sm:px-6 lg:px-2">
+                    <div className="overflow-hidden sm:rounded-lg">
+                        <SearchBar />
+                    </div>
+                </div>
+            </div>
             <table
                 {...getTableProps()}
                 className="border-collapse border w-full"

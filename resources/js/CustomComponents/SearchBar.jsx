@@ -10,8 +10,8 @@ export default function SearchBar() {
         axios
             .get("http://127.0.0.1:8000/api/data")
             .then((res) => {
-                setData(res.data);
-                setRecords(res.data);
+                setData(res.data.data);
+                console.log(data);
             })
             .catch((error) => {
                 console.error(error);
