@@ -1,4 +1,3 @@
-import SearchBar from "@/CustomComponents/SearchBar";
 import TableComponent from "@/CustomComponents/Table";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";

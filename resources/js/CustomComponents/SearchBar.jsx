@@ -6,6 +6,7 @@ import { useEffect } from "react";
 export default function SearchBar() {
     const [data, setData] = useState([]);
     const [records, setRecords] = useState([]);
+
     useEffect(() => {
         axios
             .get("http://127.0.0.1:8000/api/data")
@@ -29,7 +30,7 @@ export default function SearchBar() {
                                 <SearchIcon />
                             </InputAdornment>
                         }
-                        placeholder="Search"
+                        placeholder="Search test"
                     />
                 </FormControl>
             </div>
