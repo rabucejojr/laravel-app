@@ -46,7 +46,7 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink
                                 // href={route("contact")}
                                 >
-                                    Customer Logbook
+                                    Contact Us
                                 </NavLink>
                             </div>
                         </div>
