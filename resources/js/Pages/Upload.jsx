@@ -2,19 +2,14 @@ import React, { useState } from "react";
 import {
     Box,
     TextField,
-    InputLabel,
     MenuItem,
     FormControl,
     Select,
-    Grid,
     Button,
-    Backdrop,
-    CircularProgress,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
-import SimpleSnackbar from "@/CustomComponents/SimpleSmackbar";
 
 const style = {
     position: "absolute",
@@ -31,18 +26,22 @@ const style = {
     justifyContent: "center",
     alignItems: "center",
 };
+
 const styles = {
     margin: "10px",
 };
+
 export default function Upload2({ auth }) {
     const { flash } = usePage().props;
+
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
-        filegroup: "SETUP", // default value if nothing is selected 
+        filegroup: "SETUP", // default value if nothing is selected
         filename: "",
         description: "",
         location: "",
     });
+
     // SET VALUES
     function handleChange(e) {
         setValues({
@@ -50,11 +49,12 @@ export default function Upload2({ auth }) {
             [e.target.name]: e.target.value,
         });
     }
+
     // SUBMIT/SAVE DATA
     function handleSubmit(e) {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
-        router.post(api, values); //inertia router.post to send data to mysql
+        router.post(api, values); // inertia router.post to send data to mysql
     }
 
     return (

@@ -15,14 +15,11 @@ const styles = {
         height: 200,
     },
 };
-export default function MediaCard({ imageSource, title, content }) {
 
+export default function MediaCard({ imageSource, title, content }) {
     return (
         <Card sx={styles.card}>
-            <CardMedia
-                sx={styles.media}
-                image={imageSource}
-            />
+            <CardMedia sx={styles.media} image={imageSource} />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
@@ -32,10 +29,7 @@ export default function MediaCard({ imageSource, title, content }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button
-                    variant="contained"
-                    size="small"
-                >
+                <Button variant="contained" size="small">
                     Learn More
                 </Button>
             </CardActions>

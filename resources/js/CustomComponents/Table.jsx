@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import Update from "./Update";
-import { Button } from "@mui/material";
 import Delete from "./Delete";
 import SearchBar from "./SearchBar";
 
@@ -28,6 +27,7 @@ const TableComponent = () => {
         console.log("Id being deleted: ", id);
         fetchData();
     };
+
     const handleUpdate = (id) => {
         console.log("Id being updated: ", id);
         fetchData();

@@ -4,8 +4,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import DeleteIcon from "@mui/icons-material/Delete";
-import CircularProgress from "@mui/material/CircularProgress";
-import Table from './Table'
 
 const style = {
     position: "absolute",
@@ -36,7 +34,7 @@ export default function DeleteModal({ row, onDelete }) {
         setLoading(true);
         axios
             .delete(`http://127.0.0.1:8000/api/delete/${id}`)
-            .then((response) => {
+            .then((res) => {
                 onDelete(id);
                 setLoading(false);
                 setOpen(false);

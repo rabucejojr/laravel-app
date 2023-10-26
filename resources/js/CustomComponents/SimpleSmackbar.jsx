@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box } from "@mui/material";
 
 export default function SimpleSnackbar({ message }) {
     const [open, setOpen] = React.useState(false);
