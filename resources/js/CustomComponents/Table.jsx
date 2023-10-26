@@ -4,8 +4,10 @@ import { useTable } from "react-table";
 import Update from "./Update";
 import { Button } from "@mui/material";
 import Delete from "./Delete";
+import SearchBar from "./SearchBar";
 
 const TableComponent = () => {
+    
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -60,42 +62,48 @@ const TableComponent = () => {
         });
 
     return (
-        <table {...getTableProps()} className="border-collapse border w-full">
-            <thead>
-                {headerGroups.map((headerGroup) => (
-                    <tr
-                        {...headerGroup.getHeaderGroupProps()}
-                        className="bg-blue-300"
-                    >
-                        {headerGroup.headers.map((column) => (
-                            <th
-                                {...column.getHeaderProps()}
-                                className="border p-2"
-                            >
-                                {column.render("Header")}
-                            </th>
-                        ))}
-                    </tr>
-                ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-                {rows.map((row) => {
-                    prepareRow(row);
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map((cell) => (
-                                <td
-                                    {...cell.getCellProps()}
-                                    className="border p-2 text-center"
+        <>
+            <SearchBar />
+            <table
+                {...getTableProps()}
+                className="border-collapse border w-full"
+            >
+                <thead>
+                    {headerGroups.map((headerGroup) => (
+                        <tr
+                            {...headerGroup.getHeaderGroupProps()}
+                            className="bg-blue-300"
+                        >
+                            {headerGroup.headers.map((column) => (
+                                <th
+                                    {...column.getHeaderProps()}
+                                    className="border p-2"
                                 >
-                                    {cell.render("Cell")}
-                                </td>
+                                    {column.render("Header")}
+                                </th>
                             ))}
                         </tr>
-                    );
-                })}
-            </tbody>
-        </table>
+                    ))}
+                </thead>
+                <tbody {...getTableBodyProps()}>
+                    {rows.map((row) => {
+                        prepareRow(row);
+                        return (
+                            <tr {...row.getRowProps()}>
+                                {row.cells.map((cell) => (
+                                    <td
+                                        {...cell.getCellProps()}
+                                        className="border p-2 text-center"
+                                    >
+                                        {cell.render("Cell")}
+                                    </td>
+                                ))}
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </>
     );
 };
 

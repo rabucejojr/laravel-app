@@ -11,7 +11,6 @@ export default function Summary({ auth }) {
             <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
-                        <SearchBar/>
                         <TableComponent />
                     </div>
                 </div>
