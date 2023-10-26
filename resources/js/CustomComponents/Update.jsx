@@ -42,7 +42,7 @@ export default function Update({ row, onUpdate }) {
     const handleClose = () => setOpen(false);
 
     // TEXTFIELD INPUT HOOKS
-    const [id, setId] = useState(row.values.id);
+    const id = row.values.id;
     const [filegroup, setFilegroup] = useState(row.values.filegroup);
     const [filename, setFilename] = useState(row.values.filename);
     const [description, setDescription] = useState(row.values.description);
