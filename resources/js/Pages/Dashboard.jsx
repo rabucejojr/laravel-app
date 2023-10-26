@@ -18,6 +18,7 @@ export default function Dashboard({ auth }) {
                                     content={
                                         "Welcome to PRISM — the PRISM of possibilities!"
                                     }
+                                    link={"www.facebook.com"}
                                 />
                             </div>
                             <div className="m-4">
@@ -27,6 +28,7 @@ export default function Dashboard({ auth }) {
                                     content={
                                         "Taganito Mining Corporation for the Adoption of Tubig Talino"
                                     }
+                                    link={"www.facebook.com"}
                                 />
                             </div>
                             <div className="m-4">
@@ -36,6 +38,7 @@ export default function Dashboard({ auth }) {
                                     content={
                                         "Four business in SDN sign MOA with DOST for technology upgrading and enhanced productivity"
                                     }
+                                    link={"www.facebook.com"}
                                 />
                             </div>
                         </div>
