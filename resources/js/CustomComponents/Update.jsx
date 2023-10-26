@@ -68,7 +68,7 @@ export default function Update({ row, onUpdate }) {
             .put(api, newData)
             .then((response) => {
                 console.log("Data updated successfully:", response.data);
-                onUpdate(id);
+                onUpdate(id, response.data.message);
                 setOpen(false);
             })
             .catch((error) => {

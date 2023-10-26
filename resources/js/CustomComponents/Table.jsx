@@ -1,12 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
 import Update from "./Update";
 import Delete from "./Delete";
 import SearchBar from "./SearchBar";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const TableComponent = () => {
     const [data, setData] = useState([]);
+    const [openSnackBar, setOpenSnackBar] = useState(false);
+    const [updateMessage, setUpdateMessage] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -28,9 +37,15 @@ const TableComponent = () => {
         fetchData();
     };
 
-    const handleUpdate = (id) => {
+    const handleUpdate = (id, message) => {
         console.log("Id being updated: ", id);
+        setOpenSnackBar(true);
+        setUpdateMessage(message);
         fetchData();
+    };
+
+    const handleClose = (event, reason) => {
+        setOpenSnackBar(false);
     };
 
     const columns = React.useMemo(
@@ -108,6 +123,20 @@ const TableComponent = () => {
                     })}
                 </tbody>
             </table>
+            <Snackbar
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                open={openSnackBar}
+                autoHideDuration={2000}
+                onClose={handleClose}
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                >
+                    {updateMessage}
+                </Alert>
+            </Snackbar>
         </>
     );
 };

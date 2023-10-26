@@ -30,7 +30,7 @@ export default function SearchBar() {
                                 <SearchIcon />
                             </InputAdornment>
                         }
-                        placeholder="Search test"
+                        placeholder="Search"
                     />
                 </FormControl>
             </div>
