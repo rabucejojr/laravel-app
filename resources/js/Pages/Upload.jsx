@@ -6,10 +6,16 @@ import {
     FormControl,
     Select,
     Button,
+    Snackbar
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const style = {
     position: "absolute",
@@ -32,6 +38,8 @@ const styles = {
 };
 
 export default function Upload2({ auth }) {
+    const [openSnackBar, setOpenSnackBar] = useState(false);
+    const [updateMessage, setUpdateMessage] = useState("");
     const { flash } = usePage().props;
 
     // CREATE AN ARRAY OF VALUES FROM INPUTS
@@ -51,11 +59,16 @@ export default function Upload2({ auth }) {
     }
 
     // SUBMIT/SAVE DATA
-    function handleSubmit(e) {
+    const handleSubmit =(e, message)=> {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
+        setOpenSnackBar(true);
+        setUpdateMessage('Save Success');
         router.post(api, values); // inertia router.post to send data to mysql
     }
+    const handleClose = (event, reason) => {
+        setOpenSnackBar(false);
+    };
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -115,6 +128,20 @@ export default function Upload2({ auth }) {
                     </Button>
                 </FormControl>
             </Box>
+            <Snackbar
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                open={openSnackBar}
+                autoHideDuration={2000}
+                onClose={handleClose}
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                >
+                    {updateMessage}
+                </Alert>
+            </Snackbar>
         </AuthenticatedLayout>
     );
 }
