@@ -14,6 +14,8 @@ const TableComponent = () => {
     const [data, setData] = useState([]);
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const [updateMessage, setUpdateMessage] = useState("");
+    // Global Filter
+    const [globalFilter, setGlobalFilter] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -71,6 +73,7 @@ const TableComponent = () => {
         useTable({
             columns,
             data,
+            state: { globalFilter },
         });
 
     return (
