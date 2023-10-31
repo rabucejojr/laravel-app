@@ -3,21 +3,15 @@ import { Box, InputAdornment, OutlinedInput, FormControl } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useEffect } from "react";
 
-export default function SearchBar() {
-    const [data, setData] = useState([]);
-    const [records, setRecords] = useState([]);
+export default function SearchBar({onSearch}) {
+    const [data, setData] = useState('');
 
-    useEffect(() => {
-        axios
-            .get("http://127.0.0.1:8000/api/data")
-            .then((res) => {
-                setData(res.data.data);
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
+const handleInputChange=(e)=>{
+    setData(e.target.value);
+}
+const handleSearch=(e)=>{
+    onSearch(data);
+}
 
     return (
         <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -26,7 +20,11 @@ export default function SearchBar() {
                     <OutlinedInput
                         id="outlined-adornment-weight"
                         endAdornment={
-                            <InputAdornment position="end">
+                            <InputAdornment
+                            value={setData}
+                            onChange={handleInputChange}
+                            onClick={handleSearch}
+                            position="end">
                                 <SearchIcon />
                             </InputAdornment>
                         }

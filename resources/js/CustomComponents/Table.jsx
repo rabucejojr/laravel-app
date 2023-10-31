@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-
-import { Update, Delete, SearchBar } from "./index"; //Custom Components
+import { Update, Delete, SearchBar, DebouncedInput } from "./index"; //Custom Components
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -69,22 +68,23 @@ const TableComponent = () => {
         []
     );
 
+    const [filteredData, setFilteredData] = useState(data);
+    const handleSearch = (data) => {
+        const filtered = data.filtered((row) => {
+            row.name / toLowerCase().includes(data.toLowerCase());
+        });
+        setFilteredData(filtered);
+    };
+
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({
             columns,
             data,
-            state: { globalFilter },
         });
 
     return (
         <>
-            <div className="p-2">
-                <div className="sm:px-6 lg:px-2">
-                    <div className="overflow-hidden sm:rounded-lg">
-                        <SearchBar />
-                    </div>
-                </div>
-            </div>
+            <SearchBar onSearch={handleSearch} />
             <table
                 {...getTableProps()}
                 className="border-collapse border w-full"
