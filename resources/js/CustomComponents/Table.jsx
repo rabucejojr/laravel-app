@@ -4,9 +4,7 @@ import { useTable } from "react-table";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
-import Update from "./Update";
-import Delete from "./Delete";
-import SearchBar from "./SearchBar";
+import { Update, Delete, SearchBar } from "./index"; //Custom Components
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
