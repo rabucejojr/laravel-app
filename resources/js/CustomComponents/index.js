@@ -1,8 +1,6 @@
 export {default as Calendar} from './Calendar'
 export {default as Delete} from './Delete'
 export {default as MediaCard} from './MediaCard'
-export {default as SearchBar} from './SearchBar'
 export {default as SimpleSnackbar} from './SimpleSnackbar'
 export {default as Table} from './Table'
 export {default as Update} from './Update'
-export {default as DebouncedInput} from './DebouncedInput'

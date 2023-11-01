@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter } from "react-table";
 import { Update, Delete } from "./index"; //Custom Components
-import { TextField,Snackbar,MuiAlert } from "@mui/material";
+import { TextField, Snackbar } from "@mui/material";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -47,7 +47,7 @@ const TableComponent = () => {
     const columns = React.useMemo(
         () => [
             { Header: "ID", accessor: "id" },
-            { Header: "Group", accessor: "filegroup" },
+            { Header: "Category", accessor: "filegroup" },
             { Header: "Filename", accessor: "filename" },
             { Header: "Description", accessor: "description" },
             { Header: "File Location", accessor: "location" },
@@ -90,16 +90,18 @@ const TableComponent = () => {
 
     return (
         <>
-            <TextField
-                type="text"
-                value={globalFilter || ""}
-                onChange={handleGlobalFilterChange}
-                placeholder="Search..."
-                sx={{paddingBottom:'10px'}}
-            />
+            <div>
+                <TextField
+                    type="text"
+                    value={globalFilter || ""}
+                    onChange={handleGlobalFilterChange}
+                    placeholder="Search..."
+                    sx={{ paddingBottom: "10px" }}
+                />
+            </div>
             <table
                 {...getTableProps()}
-                className="border-collapse border w-full"
+                className="border-collapse border w-full bg-blue-50"
             >
                 <thead>
                     {headerGroups.map((headerGroup) => (
