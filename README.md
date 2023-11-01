@@ -1,6 +1,32 @@
-## Project Overview
-### Built With Inertia/React and Laravel 10
+# File Tracing System
 
-This project is intended for practice purposes as guide for Laravel + Inertia/React Tech Stack
-The purpose of this is to organize files for navigation
+## Introduction
 
+The File Tracing System is a web application developed using ReactJS for the front-end, Laravel for the back-end, and MySQL as the database. This system is designed to manage and track files within an organization.
+
+## Features
+
+- User authentication and authorization.
+- File upload and management.
+- File categorization and tagging.
+- Advanced search and filtering options.
+- User-friendly interface for seamless user experience.
+
+## Technologies Used
+
+- **Front-end:**
+  - ReactJS
+
+- **Back-end:**
+  - Laravel
+
+- **Database:**
+  - MySQL
+
+## Getting Started
+
+Follow the steps below to set up the File Tracing System on your local environment:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/file-tracing-system.git
