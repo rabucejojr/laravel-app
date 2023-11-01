@@ -45,7 +45,7 @@ To run the application,
 1. **NPM**
    ```bash
    npm run dev
-1. **Artisan**
+2. **Artisan**
    ```bash
    php artisan serve
 
