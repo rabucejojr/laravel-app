@@ -1,7 +1,5 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Snackbar from "@mui/material/Snackbar";
-import IconButton from "@mui/material/IconButton";
+import {Snackbar,IconButton} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function SimpleSnackbar({ message }) {

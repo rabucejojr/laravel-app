@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useTable } from "react-table";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-import { Update, Delete, SearchBar, DebouncedInput } from "./index"; //Custom Components
+import { useTable, useGlobalFilter } from "react-table";
+import { Update, Delete } from "./index"; //Custom Components
+import { TextField,Snackbar,MuiAlert } from "@mui/material";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -66,16 +65,38 @@ const TableComponent = () => {
         []
     );
 
-
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-        useTable({
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+        state,
+        setGlobalFilter,
+    } = useTable(
+        {
             columns,
             data,
-        });
+        },
+        useGlobalFilter
+    );
+
+    const { globalFilter } = state;
+
+    const handleGlobalFilterChange = (e) => {
+        const value = e.target.value || undefined;
+        setGlobalFilter(value);
+    };
 
     return (
         <>
-            <SearchBar onSearch={handleSearch} />
+            <TextField
+                type="text"
+                value={globalFilter || ""}
+                onChange={handleGlobalFilterChange}
+                placeholder="Search..."
+                sx={{paddingBottom:'10px'}}
+            />
             <table
                 {...getTableProps()}
                 className="border-collapse border w-full"
