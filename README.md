@@ -18,7 +18,7 @@ The File Tracing System is a web application developed using ReactJS for the fro
   - ReactJS
 
 - **Back-end:**
-  - Laravel
+  - Laravel API
 
 - **Database:**
   - MySQL
@@ -29,4 +29,10 @@ Follow the steps below to set up the File Tracing System on your local environme
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/file-tracing-system.git
+   git clone https://github.com/rabucejojr/laravel-app.git
+2. **Update Laravel Composer**
+   ```bash
+   composer update
+3. **Install NPM:**
+   ```bash
+   npm install or npm i
