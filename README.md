@@ -39,3 +39,13 @@ Follow the steps below to set up the File Tracing System on your local environme
    ```bash
    php artisan key:generate
    php artisan migrate:refresh
+
+To run the application,
+    Open two terminals, one for NPM and second for Artisan
+1. **NPM**
+   ```bash
+   npm run dev
+1. **Artisan**
+   ```bash
+   php artisan serve
+
