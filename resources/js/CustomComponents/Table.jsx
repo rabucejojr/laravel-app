@@ -101,7 +101,7 @@ const TableComponent = () => {
             </div>
             <table
                 {...getTableProps()}
-                className="border-collapse border w-full bg-blue-50"
+                className="border-collapse border w-full bg-gray-100"
             >
                 <thead>
                     {headerGroups.map((headerGroup) => (

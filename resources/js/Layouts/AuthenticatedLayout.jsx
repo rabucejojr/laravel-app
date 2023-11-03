@@ -7,7 +7,6 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 
-
 const iconStyles = {
     margin: "5px",
 };
@@ -21,24 +20,27 @@ export default function Authenticated({ user, header, children }) {
                 <div className="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-black">
                     <div className="flex justify-between h-20">
                         <div className="flex">
+                            <div className="hidden  sm:ml-10 sm:flex">
+                                <ApplicationLogo />
+                            </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    <GridViewIcon style={ iconStyles } />
+                                    <GridViewIcon style={iconStyles} />
                                     Home
                                 </NavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route("upload")}>
-                                    <AddCircleIcon style={ iconStyles } />
+                                    <AddCircleIcon style={iconStyles} />
                                     Upload
                                 </NavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route("summary")}>
-                                    <SummarizeIcon style={ iconStyles } />
+                                    <SummarizeIcon style={iconStyles} />
                                     Summary
                                 </NavLink>
                             </div>
