@@ -20,7 +20,7 @@ export default function Authenticated({ user, header, children }) {
                 <div className="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-black">
                     <div className="flex justify-between h-20">
                         <div className="flex">
-                            <div className="hidden  sm:ml-10 sm:flex">
+                            <div className="space-x-12 ml-10 sm:flex">
                                 <ApplicationLogo />
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
