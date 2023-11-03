@@ -27,7 +27,7 @@ export default function Authenticated({ user, header, children }) {
                                     active={route().current("dashboard")}
                                 >
                                     <GridViewIcon style={ iconStyles } />
-                                    Dashboard
+                                    Home
                                 </NavLink>
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
