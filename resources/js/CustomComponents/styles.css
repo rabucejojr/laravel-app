@@ -1,0 +1,11 @@
+#btnDiv {
+    align-items: center;
+}
+#btnDiv #btn {
+    width: 150px;
+    align-items: center;
+}
+#modalContainer {
+    width: 280px;
+    border-style: solid;
+}
