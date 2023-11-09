@@ -8,8 +8,7 @@ import {
     Button,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, router } from "@inertiajs/react";
-import { usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import { SimpleSnackbar } from "@/CustomComponents";
 
 const style = {
@@ -34,8 +33,7 @@ const styles = {
 
 export default function Upload2({ auth }) {
     const [openSnackBar, setOpenSnackBar] = useState(false);
-    const [uploadMessage, setUploadMessage] = useState("");
-    const { flash } = usePage().props;
+    const uploadMessage = "File saved successfully";
 
     // CREATE AN ARRAY OF VALUES FROM INPUTS
     const [values, setValues] = useState({
@@ -59,7 +57,6 @@ export default function Upload2({ auth }) {
         e.preventDefault();
         setOpenSnackBar(true); // opens snackbar
         axios.post(api, values);
-        setUploadMessage("Save Success");
     };
     // close snackbar
     const handleClose = (event, reason) => {
