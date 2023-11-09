@@ -1,6 +1,6 @@
 // src/EventModal.js
 import React, { useState } from "react";
-import { Button, Modal, TextField } from "@mui/material";
+import { Button, Modal, TextField, Box } from "@mui/material";
 import "./styles.css";
 // Modal Styles
 const styles = {
