@@ -7,7 +7,7 @@ import { TextField } from "@mui/material";
 const TableComponent = () => {
     const [data, setData] = useState([]);
     const [openSnackBar, setOpenSnackBar] = useState(false);
-    const [updateMessage, setUpdateMessage] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -32,7 +32,7 @@ const TableComponent = () => {
     const handleUpdate = (id, message) => {
         console.log("Id being updated: ", id);
         setOpenSnackBar(true);
-        setUpdateMessage(message);
+        setAlertMessage(message);
         fetchData();
     };
 
@@ -134,15 +134,12 @@ const TableComponent = () => {
                     })}
                 </tbody>
             </table>
-
             <SimpleSnackbar
-                open={openSnackBar}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                open={openSnackBar}
                 onClose={handleClose}
                 severity="success"
-                message={updateMessage}
-                vertical="top"
-                horizontal="center"
+                message={alertMessage}
             />
         </>
     );

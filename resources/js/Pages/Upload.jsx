@@ -132,13 +132,11 @@ export default function Upload2({ auth }) {
                 </FormControl>
             </Box>
             <SimpleSnackbar
-                open={openSnackBar}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                open={openSnackBar}
                 onClose={handleClose}
                 severity="success"
                 message={uploadMessage}
-                vertical="bottom"
-                horizontal="center"
             />
         </AuthenticatedLayout>
     );
