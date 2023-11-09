@@ -145,7 +145,7 @@ const TableComponent = () => {
                 onClose={handleClose}
             >
             <Alert>
-                "File Updated Successfully!"
+                {updateMessage}
             </Alert>
 
             </Snackbar>
