@@ -31,10 +31,6 @@ const btnStyle = {
     // width: "200px",
 };
 
-const styles = {
-    margin: "10px",
-};
-
 export default function Update({ row, onUpdate }) {
     //MODAL HOOKS
     const [open, setOpen] = useState(false);
