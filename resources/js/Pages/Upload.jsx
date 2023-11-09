@@ -6,7 +6,7 @@ import {
     FormControl,
     Select,
     Button,
-    Snackbar
+    Snackbar,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
@@ -61,11 +61,11 @@ export default function Upload2({ auth }) {
         e.preventDefault();
         setOpenSnackBar(true); // opens snackbar
         axios.post(api, values);
-        setUploadMessage('Save Success');
-    }
+        setUploadMessage("Save Success");
+    };
     // close snackbar
     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
+        if (reason === "clickaway") {
             return;
         }
         setOpenSnackBar(false);
@@ -134,14 +134,17 @@ export default function Upload2({ auth }) {
                     >
                         SAVE
                     </Button>
-                    <SimpleSnackbar open={openSnackBar}
-                        onClose={handleClose}
-                        severity="success"
-                        message={uploadMessage}
-                        vertical='bottom'
-                        horizontal='center' />
                 </FormControl>
             </Box>
+            <SimpleSnackbar
+                    open={openSnackBar}
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                    onClose={handleClose}
+                    severity="success"
+                    message={uploadMessage}
+                    vertical="bottom"
+                    horizontal="center"
+                />
         </AuthenticatedLayout>
     );
 }
