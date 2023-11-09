@@ -24,8 +24,10 @@ const TableComponent = () => {
             });
     };
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, message) => {
         console.log("Id being deleted: ", id);
+        setOpenSnackBar(true);
+        setAlertMessage(message);
         fetchData();
     };
 

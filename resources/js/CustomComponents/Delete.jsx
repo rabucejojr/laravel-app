@@ -35,7 +35,7 @@ export default function DeleteModal({ row, onDelete }) {
         axios
             .delete(`http://127.0.0.1:8000/api/delete/${id}`)
             .then((res) => {
-                onDelete(id);
+                onDelete(id, res.data.message);
                 setLoading(false);
                 setOpen(false);
             })
