@@ -6,12 +6,10 @@ import {
     FormControl,
     Select,
     Button,
-    Snackbar,
 } from "@mui/material";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
-import MuiAlert from "@mui/material/Alert";
 import { SimpleSnackbar } from "@/CustomComponents";
 
 const style = {
@@ -137,14 +135,14 @@ export default function Upload2({ auth }) {
                 </FormControl>
             </Box>
             <SimpleSnackbar
-                    open={openSnackBar}
-                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                    onClose={handleClose}
-                    severity="success"
-                    message={uploadMessage}
-                    vertical="bottom"
-                    horizontal="center"
-                />
+                open={openSnackBar}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                onClose={handleClose}
+                severity="success"
+                message={uploadMessage}
+                vertical="bottom"
+                horizontal="center"
+            />
         </AuthenticatedLayout>
     );
 }

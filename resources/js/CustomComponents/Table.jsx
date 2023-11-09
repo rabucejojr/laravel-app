@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter } from "react-table";
 import { Update, Delete, SimpleSnackbar } from "./index"; //Custom Components
-import { TextField, Snackbar, Alert } from "@mui/material";
-
+import { TextField } from "@mui/material";
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -135,24 +134,16 @@ const TableComponent = () => {
                     })}
                 </tbody>
             </table>
-            {/* <Snackbar
-                anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                open={openSnackBar}
-                autoHideDuration={3000}
-                onClose={handleClose}
-            >
-            <Alert>
-                {updateMessage}
-            </Alert>
 
-            </Snackbar> */}
-            <SimpleSnackbar open={openSnackBar}
+            <SimpleSnackbar
+                open={openSnackBar}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 onClose={handleClose}
                 severity="success"
                 message={updateMessage}
-                vertical='top'
-                horizontal='center' />
+                vertical="top"
+                horizontal="center"
+            />
         </>
     );
 };
