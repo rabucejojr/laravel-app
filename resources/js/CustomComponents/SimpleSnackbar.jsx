@@ -1,14 +1,33 @@
-import React from 'react';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+import React from "react";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
-const SimpleSnackbar = ({ open, onClose, severity, message, vertical, horizontal, ...props }) => {
+const SimpleSnackbar = ({
+    open,
+    onClose,
+    severity,
+    message,
+    vertical,
+    horizontal,
+    ...props
+}) => {
     return (
-        <Snackbar open={open} autoHideDuration={1000} onClose={onClose} key={vertical + horizontal } {...props}>
-        <MuiAlert elevation={6} variant="standard" onClose={onClose} severity={severity}>
-            {message}
-        </MuiAlert>
-        </Snackbar >
+        <Snackbar
+            open={open}
+            autoHideDuration={1000}
+            onClose={onClose}
+            key={vertical + horizontal}
+            {...props}
+        >
+            <MuiAlert
+                elevation={6}
+                variant="standard"
+                onClose={onClose}
+                severity={severity}
+            >
+                {message}
+            </MuiAlert>
+        </Snackbar>
     );
 };
 
