@@ -1,12 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter } from "react-table";
-import { Update, Delete } from "./index"; //Custom Components
+import { Update, Delete, SimpleSnackbar } from "./index"; //Custom Components
 import { TextField, Snackbar, Alert } from "@mui/material";
 
-// const Alert = React.forwardRef(function Alert(props, ref) {
-//     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-// });
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -138,7 +135,7 @@ const TableComponent = () => {
                     })}
                 </tbody>
             </table>
-            <Snackbar
+            {/* <Snackbar
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 open={openSnackBar}
                 autoHideDuration={3000}
@@ -148,7 +145,14 @@ const TableComponent = () => {
                 {updateMessage}
             </Alert>
 
-            </Snackbar>
+            </Snackbar> */}
+            <SimpleSnackbar open={openSnackBar}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                onClose={handleClose}
+                severity="success"
+                message={updateMessage}
+                vertical='top'
+                horizontal='center' />
         </>
     );
 };

@@ -12,7 +12,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 import MuiAlert from "@mui/material/Alert";
-
+import { SimpleSnackbar } from "@/CustomComponents";
 
 const style = {
     position: "absolute",
@@ -36,7 +36,7 @@ const styles = {
 
 export default function Upload2({ auth }) {
     const [openSnackBar, setOpenSnackBar] = useState(false);
-    const [updateMessage, setUpdateMessage] = useState("");
+    const [uploadMessage, setUploadMessage] = useState("");
     const { flash } = usePage().props;
 
     // CREATE AN ARRAY OF VALUES FROM INPUTS
@@ -56,15 +56,26 @@ export default function Upload2({ auth }) {
     }
 
     // SUBMIT/SAVE DATA
-    const handleSubmit =(e, message)=> {
+    const handleSubmit = (e, message) => {
         const api = "http://127.0.0.1:8000/api/save";
         e.preventDefault();
-        setOpenSnackBar(true);
-        setUpdateMessage('Save Success');
-        router.post(api, values); // inertia router.post to send data to mysql
+        setOpenSnackBar(true); // opens snackbar
+        axios.post(api, values);
+        setUploadMessage('Save Success');
     }
+    // close snackbar
     const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
         setOpenSnackBar(false);
+        // empty fields if snaclbar is closed
+        setValues({
+            filegroup: "SETUP", // default value if nothing is selected
+            filename: "",
+            description: "",
+            location: "",
+        });
     };
 
     return (
@@ -123,6 +134,12 @@ export default function Upload2({ auth }) {
                     >
                         SAVE
                     </Button>
+                    <SimpleSnackbar open={openSnackBar}
+                        onClose={handleClose}
+                        severity="success"
+                        message={uploadMessage}
+                        vertical='bottom'
+                        horizontal='center' />
                 </FormControl>
             </Box>
         </AuthenticatedLayout>

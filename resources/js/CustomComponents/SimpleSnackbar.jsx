@@ -1,50 +1,15 @@
-import * as React from "react";
-import {Snackbar,IconButton} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import React from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
-export default function SimpleSnackbar({ message }) {
-    const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === "clickaway") {
-            return;
-        }
-
-        setOpen(false);
-    };
-
-    const action = (
-        <React.Fragment>
-            <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-            >
-                <CloseIcon fontSize="small" />
-            </IconButton>
-        </React.Fragment>
-    );
-    const styles = {
-        margin: "10px",
-    };
-
+const SimpleSnackbar = ({ open, onClose, severity, message, vertical, horizontal, ...props }) => {
     return (
-        <>
-            {/* <Button sx={styles} onClick={submit} variant="contained">
-                SAVE
-            </Button> */}
-            <Snackbar
-                open={open}
-                autoHideDuration={4000}
-                onClose={handleClose}
-                message={message}
-                action={action}
-            />
-        </>
+        <Snackbar open={open} autoHideDuration={3000} onClose={onClose} key={vertical + horizontal } {...props}>
+        <MuiAlert elevation={6} variant="standard" onClose={onClose} severity={severity}>
+            {message}
+        </MuiAlert>
+        </Snackbar >
     );
-}
+};
+
+export default SimpleSnackbar;

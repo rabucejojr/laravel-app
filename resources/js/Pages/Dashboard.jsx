@@ -1,4 +1,4 @@
-import { Calendar } from '@/CustomComponents';
+import { Calendar,SimpleSnackbar } from '@/CustomComponents';
 import Media from '../CustomComponents/MediaCard'
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
