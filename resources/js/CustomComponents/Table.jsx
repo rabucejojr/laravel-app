@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTable, useGlobalFilter } from "react-table";
 import { Update, Delete } from "./index"; //Custom Components
-import { TextField, Snackbar } from "@mui/material";
+import { TextField, Snackbar, Alert } from "@mui/material";
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+// const Alert = React.forwardRef(function Alert(props, ref) {
+//     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+// });
 
 const TableComponent = () => {
     const [data, setData] = useState([]);
@@ -141,16 +141,13 @@ const TableComponent = () => {
             <Snackbar
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 open={openSnackBar}
-                autoHideDuration={2000}
+                autoHideDuration={3000}
                 onClose={handleClose}
             >
-                <Alert
-                    onClose={handleClose}
-                    severity="success"
-                    sx={{ width: "100%" }}
-                >
-                    {updateMessage}
-                </Alert>
+            <Alert>
+                "File Updated Successfully!"
+            </Alert>
+
             </Snackbar>
         </>
     );
