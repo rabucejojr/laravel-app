@@ -35,8 +35,8 @@ function Calendar() {
                 open={isModalOpen}
                 handleClose={handleCloseModal}
                 handleAddEvent={handleAddEvent}
-                event={title}
-                date={date}
+                // event={title}
+                // date={date}
             />
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}

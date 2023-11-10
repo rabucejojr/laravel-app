@@ -8,15 +8,23 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
 };
-const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
-
-    const handleSave = () => {
-        if (title && date) {
-            handleAddEvent({ title, date });
-            handleClose();
-        }
+const CustomModal = ({ open, handleClose, handleAddEvent, ...props }) => {
+    const [calendarValue, setCalendarValue] = useState({
+        title: '',
+        date: ''
+    });
+    // Submit event to api
+    const handleSave = (e, message) => {
+        e.preventDefault();
     };
 
+    // SET VALUES
+    function handleChange(e) {
+        setCalendarValue({
+            ...calendarValue,
+            [e.target.name]: e.target.value,
+        });
+    }
     return (
         <>
             <div id="modalContainer">
@@ -25,16 +33,20 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
                         <h2>Add Event</h2>
                         <TextField
                             label="Title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            id='title'
+                            name="title"
+                            value={calendarValue.title}
+                            onChange={handleChange}
                             fullWidth
                             variant="outlined"
                             margin="normal"
                         />
                         <TextField
                             label="Date (YYYY-MM-DD)"
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
+                            id='date'
+                            name="date"
+                            value={calendarValue.date}
+                            onChange={handleChange}
                             fullWidth
                             variant="outlined"
                             margin="normal"
