@@ -8,14 +8,16 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
 };
-const CustomModal = ({ open, handleClose, handleAddEvent, ...props }) => {
+const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
     const [calendarValue, setCalendarValue] = useState({
-        title: '',
-        date: ''
+        title: "",
+        date: ""
     });
     // Submit event to api
-    const handleSave = (e, message) => {
+    const handleAddEvent = (e, message) => {
+        const api = "";
         e.preventDefault();
+        console.log(calendarValue);
     };
 
     // SET VALUES
@@ -56,7 +58,7 @@ const CustomModal = ({ open, handleClose, handleAddEvent, ...props }) => {
                                 id="btn"
                                 variant="contained"
                                 color="primary"
-                                onClick={handleSave}
+                                onClick={handleAddEvent}
                             >
                                 Save
                             </Button>
