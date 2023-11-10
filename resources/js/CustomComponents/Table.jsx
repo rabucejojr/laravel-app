@@ -94,7 +94,7 @@ const TableComponent = () => {
                     value={globalFilter || ""}
                     onChange={handleGlobalFilterChange}
                     placeholder="Search..."
-                    sx={{ paddingBottom: "10px" }}
+                    sx={{ paddingBottom: "20px" }}
                 />
             </div>
             <table
