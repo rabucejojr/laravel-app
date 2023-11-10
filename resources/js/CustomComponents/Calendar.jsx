@@ -29,7 +29,6 @@ function Calendar() {
     };
     return (
         <>
-            <Button variant="contained" color="primary" onClick={handleOpenModal}>Add Event</Button>
             <CustomModal
                 open={isModalOpen}
                 handleClose={handleCloseModal}
@@ -44,6 +43,7 @@ function Calendar() {
                 selectable={true}
                 select={(info) => console.log(info)}
                 eventAdd={handleEventAdd}
+                dateClick={handleOpenModal}
             />
         </>
     );
