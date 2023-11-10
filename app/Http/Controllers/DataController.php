@@ -13,9 +13,6 @@ class DataController extends Controller
     {
         $data = File::all();
 
-        // return response()->json($data, 200);
-
-        // if ($data->count() > 0) {
         if ($data) {
             return response()->json([
                 'status' => 200,
@@ -33,7 +30,6 @@ class DataController extends Controller
     {
         $message = 'Saved Successfully!';
         // Get Data from Upload.jsx
-        // SAVE DATA TO MYSQL
         $files = new File();
         $files->filegroup = $req->input('filegroup');
         $files->filename = $req->input('filename');
@@ -63,18 +59,8 @@ class DataController extends Controller
 
     public function deleteData($id)
     {
-        // dd('here');
         $file = File::where('id', $id)->delete();
-
-        // if ($file) {
-        //     return response()->json(['message' => 'File deleted successfully!'], 200);
-        // }
-
-        // return response()->json(['message' => 'Delete File'], 200);
-
         if ($file) {
-            // $file->delete();
-
             return response()->json([
                 'status' => 200,
                 'message' => 'File deleted successfully!'
