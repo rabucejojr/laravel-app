@@ -8,9 +8,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
 };
-const CustomModal = ({ open, handleClose, handleAddEvent }) => {
-    const [title, setTitle] = useState("");
-    const [date, setDate] = useState("");
+const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
 
     const handleSave = () => {
         if (title && date) {

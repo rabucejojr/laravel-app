@@ -3,10 +3,12 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import { CustomModal } from ".";
-import { Button } from "@mui/material";
 
 function Calendar() {
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState({
+        title: "",
+        name: "",
+    });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleEventAdd = (info) => {
@@ -33,6 +35,8 @@ function Calendar() {
                 open={isModalOpen}
                 handleClose={handleCloseModal}
                 handleAddEvent={handleAddEvent}
+                event={title}
+                date={date}
             />
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
