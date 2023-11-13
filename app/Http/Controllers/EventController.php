@@ -27,10 +27,10 @@ class EventController extends Controller
     {
         // // Get Data from Upload.jsx
         // // SAVE DATA TO MYSQL
-        // $files = new Event();
-        // $files->title = $req->input('title');
-        // $files->name = $req->input('name');
-        // $files->save();
+        $files = new Event();
+        $files->title = $req->input('title');
+        $files->date = $req->input('date');
+        $files->save();
         return response()->json([
             'status' => 200,
             'message' => 'File saved successfully!'
