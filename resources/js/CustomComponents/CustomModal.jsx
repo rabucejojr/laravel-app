@@ -2,20 +2,44 @@
 import React, { useState } from "react";
 import { Button, Modal, TextField, Box } from "@mui/material";
 import "./styles.css";
+import axios from "axios";
+import { SimpleSnackbar } from ".";
+
 // Modal Styles
 const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    // bgcolor: 'background.paper',
+    p: 4,
+
 };
-const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
+const style= {
+        padding:'10px',
+}
+// snackbar
+const close = (event, reason) => {
+    if (reason === "clickaway") {
+        return;
+    }
+    setOpenSnackBar(false);
+    // empty fields if snaclbar is closed
+    setValues({
+        title: "", // default value if nothing is selected
+        date: "",
+    });
+};
+const CustomModal = ({ open, handleClose, handleAddEvent, title, date, header }) => {
     const [calendarValue, setCalendarValue] = useState({
         title: "",
         date: ""
     });
+    const [openSnackBar, setOpenSnackBar] = useState(false);
+    const eventMessage = "Event saved successfully";
     // Submit event to api
     const handleSubmit = (e, message) => {
-        const api = "";
+        // const api = "http://127.0.0.1:8000/api/events/save";
+        // axios.post(api, calendarValue);
         e.preventDefault();
         console.log(calendarValue);
     };
@@ -27,12 +51,13 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
             [e.target.name]: e.target.value,
         });
     }
+
     return (
-        <>
+        <div id="container">
             <div id="modalContainer">
                 <Modal sx={styles} open={open} onClose={handleClose}>
                     <div className="text-center">
-                        <h2>Add Event</h2>
+                        <h2>{header}</h2>
                         <TextField
                             label="Title"
                             id='title'
@@ -65,8 +90,15 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
                         </div>
                     </div>
                 </Modal>
+                <SimpleSnackbar
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                    open={openSnackBar}
+                    onClose={close}
+                    severity="success"
+                    message={eventMessage}
+                />
             </div>
-        </>
+        </div>
     );
 };
 

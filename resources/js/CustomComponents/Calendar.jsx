@@ -35,6 +35,7 @@ function Calendar() {
                 open={isModalOpen}
                 handleClose={handleCloseModal}
                 handleAddEvent={handleAddEvent}
+                header="Today's Event"
                 // title={title}
                 // date={date}
             />

@@ -8,4 +8,8 @@
 #modalContainer {
     width: 280px;
     border-style: solid;
+    margin: 10px;
+}
+#container{
+    padding: 10px;
 }
