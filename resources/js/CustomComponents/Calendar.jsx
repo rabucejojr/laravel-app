@@ -7,7 +7,7 @@ import { CustomModal } from ".";
 function Calendar() {
     const [events, setEvents] = useState({
         title: "",
-        name: "",
+        date: "",
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -35,8 +35,8 @@ function Calendar() {
                 open={isModalOpen}
                 handleClose={handleCloseModal}
                 handleAddEvent={handleAddEvent}
-                event={title}
-                date={date}
+                // title={title}
+                // date={date}
             />
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}

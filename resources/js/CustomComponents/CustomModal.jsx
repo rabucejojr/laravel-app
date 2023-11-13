@@ -14,7 +14,7 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
         date: ""
     });
     // Submit event to api
-    const handleAddEvent = (e, message) => {
+    const handleSubmit = (e, message) => {
         const api = "";
         e.preventDefault();
         console.log(calendarValue);
@@ -58,7 +58,7 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date }) => {
                                 id="btn"
                                 variant="contained"
                                 color="primary"
-                                onClick={handleAddEvent}
+                                onClick={handleSubmit}
                             >
                                 Save
                             </Button>
