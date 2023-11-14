@@ -9,6 +9,7 @@ function Calendar() {
         title: "",
         date: "",
     });
+    const [date, setDate] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleEventAdd = (info) => {
@@ -18,7 +19,7 @@ function Calendar() {
         ]);
     };
 
-    const handleOpenModal = () => {
+    const handleOpenModal = (info) => {
         setIsModalOpen(true);
     };
 
@@ -35,9 +36,9 @@ function Calendar() {
                 open={isModalOpen}
                 handleClose={handleCloseModal}
                 handleAddEvent={handleAddEvent}
-                header="Today's Event"
+                header="Add Event"
                 // title={title}
-                // date={date}
+                date={date}
             />
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
