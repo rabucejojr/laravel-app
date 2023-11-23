@@ -47,7 +47,7 @@ function Calendar() {
                 events={events}
                 editable={true}
                 selectable={true}
-                select={(info) => console.log(info)}
+                select={(info) => console.log(info.startStr)}
                 eventAdd={handleEventAdd}
                 dateClick={handleOpenModal}
             />
