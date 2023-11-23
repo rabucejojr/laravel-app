@@ -12,6 +12,9 @@ function Calendar() {
     const [date, setDate] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const dateClicked = (info) => {
+        setDate(info.startStr);
+    }
     const handleEventAdd = (info) => {
         setEvents([
             ...events,
@@ -39,6 +42,7 @@ function Calendar() {
                 header="Add Event"
                 // title={title}
                 date={date}
+                clickedDate={date}
             />
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
@@ -47,7 +51,7 @@ function Calendar() {
                 events={events}
                 editable={true}
                 selectable={true}
-                select={(info) => console.log(info.startStr)}
+                select={dateClicked}
                 eventAdd={handleEventAdd}
                 dateClick={handleOpenModal}
             />

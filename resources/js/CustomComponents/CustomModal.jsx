@@ -29,10 +29,10 @@ const close = (event, reason) => {
         date: "",
     });
 };
-const CustomModal = ({ open, handleClose, handleAddEvent, title, date, header }) => {
+const CustomModal = ({ open, handleClose, handleAddEvent, title, date, clickedDate }) => {
     const [calendarValue, setCalendarValue] = useState({
         title: "",
-        date: ""
+        date: clickedDate,
     });
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const eventMessage = "Event saved successfully";
@@ -57,7 +57,6 @@ const CustomModal = ({ open, handleClose, handleAddEvent, title, date, header })
             <div id="modalContainer">
                 <Modal sx={styles} open={open} onClose={handleClose}>
                     <div className="text-center">
-                        <h2>{header}</h2>
                         <TextField
                             label="Title"
                             id='title'
