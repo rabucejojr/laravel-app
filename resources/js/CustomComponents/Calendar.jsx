@@ -14,6 +14,7 @@ function Calendar() {
 
     const dateClicked = (info) => {
         setDate(info.startStr);
+        console.log(date);
     }
     const handleEventAdd = (info) => {
         setEvents([
