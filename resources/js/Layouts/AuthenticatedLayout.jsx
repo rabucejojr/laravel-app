@@ -44,13 +44,6 @@ export default function Authenticated({ user, header, children }) {
                                     Summary
                                 </NavLink>
                             </div>
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                // href={route("contact")}
-                                >
-                                    Contact Us
-                                </NavLink>
-                            </div>
                         </div>
                         {/* PROFILE MENU RIGHT-SIDE */}
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
